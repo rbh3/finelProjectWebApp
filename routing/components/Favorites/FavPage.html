@@ -1,0 +1,51 @@
+<br/>
+<center ng-init="FavCtrl.init()">
+        <div class="btn-toolbar">
+                <b>Filter By:</b>
+                <select ng-model="chooseFilter" name="filterCategory" ng-style="{'background-color':'#008CBA','font-size': '20px','color':'white'}">
+                        <option value="">No-Filter</option>
+                        <option ng-repeat="x in FavCtrl.cats">{{x.text}}</option>
+                </select>
+                <b>Order By:</b>
+                <select ng-model="FavCtrl.sortValue" name="filterCategory" ng-style="{'background-color':'#008CBA','font-size': '20px','color':'white'}">
+                        <option value="">My Sort</option>
+                        <option value="Rank">Rank</option>
+                </select>
+                <button class="btn btn-primary btn-sm" ng-click="FavCtrl.savtoDB()">Save Favorites</button>
+        </div>
+
+        <br/>
+        <table class="table table-striped">
+                <thead>
+                        <tr>
+                                <th scope="col">MySort Order</th>
+                                <th scope="col">Favorite</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Desciption</th>
+                                <th scope="col">Rank</th>
+                                <th scope="col">Category</th>
+                                <th scope="col">Views</th>
+                                <th scope="col">Picture</th>
+                        </tr>
+                </thead>
+                <tbody>
+                        <tr ng-repeat="poi in $root.localFav | filter: {CategoryID: FavCtrl.getCatID(chooseFilter)} | orderBy:FavCtrl.sortValue:true">
+                                <th scope="row"><input style="color: white"  type="number" min="0" max="{{$root.localFav.length-1}}" value="{{FavCtrl.getIn(poi.ID)}}" ng-change="move(poi.ID,favCon)" ng-model="favCon" onkeypress="return false" /></th>
+                                <td>
+                                        <img src="/assets/img/unlike.JPG" ng-if="$root.isConnected" ng-style="{'height': '30px','width':'40px','cursor':'pointer'}"
+                                                ng-click="FavCtrl.saveFav(poi)" ng-show="!FavCtrl.checkifFav(poi)" />
+                                        <img src="/assets/img/like.png" ng-if="$root.isConnected" ng-style="{'height': '30px','width':'40px','cursor':'pointer'}"
+                                                ng-click="FavCtrl.saveFav(poi)" ng-show="FavCtrl.checkifFav(poi)" />
+                                </td>
+                                <td style="cursor: pointer;font-size: 17px; font-weight: bold" ng-click="FavCtrl.goTo(poi.ID)">{{poi.Name}}</td>
+                                <td>{{poi.Description}}</td>
+                                <td>{{poi.Rank}}%</td>
+                                <td>{{poi.CategoryID}}</td>
+                                <td>{{poi.UsersWatching}}</td>
+                                <td>
+                                        <img ng-style="{'height': '170px','width':'180px','cursor':'pointer'}" ng-click="FavCtrl.goTo(poi.ID)" ng-src="{{poi.Picture}}" />
+                                </td>
+                        </tr>
+                </tbody>
+        </table>
+</center>

@@ -1,0 +1,35 @@
+<html ng-app="citiesApp">
+    <head><title>Poi App</title>
+        <link rel="stylesheet" type="text/css" href="s.css" />
+</head>
+    <body ng-controller="indexController as indxCtrl">
+            <div class="scrollmenu">
+                    <a class="active" href="#/">Home</a>
+                    <a href="#/uplodeFile">Upload</a>
+                    <a href="#/res">results</a>
+                    <a ng-if="!$root.isConnected" href="#/Login">Login</a>
+                    <a ng-if="$root.isConnected" ng-click="indxCtrl.reset()" href="#/">Logout</a>
+                    <a style="color: white">Hello {{$root.userName}} </a>
+                </div>
+
+                <br/>
+                <br/>
+        <div  ng-view></div>
+
+    </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <script src="node_modules/angular-local-storage/dist/angular-local-storage.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script> 
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>      
+        <script src="app.js" ></script>
+        <script src="indexController.js" ></script>
+        <script src="components/About/aboutController.js" ></script>
+        <script src="components/classifier/uplodeFile.js" ></script>
+        <script src="components/classifier/res.js" ></script>
+        <script src="shared/serviceController.js" ></script>
+        <script src="shared/localStorageModel.js"></script>
+        <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/css/bootstrap.css" rel="stylesheet">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.0/ui-bootstrap-tpls.js"></script>
+
+    </body>
+    </html>

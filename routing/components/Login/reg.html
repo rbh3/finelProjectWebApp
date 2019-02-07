@@ -1,0 +1,102 @@
+<div class="page-header" ng-init="regCtrl.getXMLcountries()">
+  <h1>Registration</h1>
+</div>
+
+<form name="registerForm" ng-submit="regCtrl.submitForm(registerForm.$valid)" novalidate>
+
+  <!-- Username -->
+  <div class="form-group">
+    <label>Selected Username</label>
+    <input type="text" name="username"  ng-model="regCtrl.Username" required ng-minlength="3" ng-maxlength="8"
+      ng-pattern="/^[a-zA-Z]*$/">
+    <p ng-show="(registerForm.username.$dirty || submitted) && registerForm.username.$error.required">You must enter Username.</p>
+    <p ng-show="registerForm.username.$error.pattern || registerForm.username.$error.minlength || registerForm.username.$error.maxlength">Username need to be 3-8 letters ONLY!</p>
+  </div>
+
+  <!-- Password -->
+  <div class="form-group">
+    <label>Selected Password</label>
+    <input type="password" name="password"  ng-model="regCtrl.Password" required ng-maxlength="10" ng-minlength="5"
+      ng-pattern="/^[0-9a-zA-Z]*$/">
+    <p ng-show="(registerForm.password.$dirty || submitted) && registerForm.password.$error.required">You must enter password.</p>
+    <p ng-show="registerForm.password.$error.pattern || registerForm.password.$error.minlength || registerForm.password.$error.maxlength">Your password need to 5-10 characters long and contains letters and number ONLY!</p>
+  </div>
+
+  <!-- Fname -->
+  <div class="form-group">
+    <label>First name</label>
+    <input type="text" name="Fname" ng-model="regCtrl.Fname" ng-pattern="/^[a-zA-Z]*$/" required>
+    <p ng-show="(registerForm.Fname.$dirty || submitted) && registerForm.Fname.$error.required">You must enter First Name</p>
+    <p ng-show="registerForm.Fname.$error.pattern">Letters only!</p>
+  </div>
+
+  <!-- Lname -->
+  <div class="form-group">
+    <label>Last name</label>
+    <input type="text" name="Lname" ng-model="regCtrl.Lname" ng-pattern="/^[a-zA-Z]*$/" required>
+    <p ng-show="(registerForm.Lname.$dirty || submitted) && registerForm.Lname.$error.required">You must enter Last Name</p>
+    <p ng-show="registerForm.Lname.$error.pattern">Letters only!</p>
+  </div>
+
+  <!-- City -->
+  <div class="form-group">
+    <label>City</label>
+    <input type="text" name="City" ng-model="regCtrl.City" ng-pattern="/^[a-zA-Z]*$/" required>
+    <p ng-show="(registerForm.City.$dirty || submitted) && registerForm.City.$error.required">You must enter City</p>
+    <p ng-show="registerForm.City.$error.pattern">Letters only!</p>
+  </div>
+
+  <!-- Country -->
+  <div class="form-group">
+    <label>Country</label>
+    <select name="Country" ng-model="regCtrl.Country" required autofocus>
+      <option ng-repeat="x in regCtrl.Countries">{{x}}</option>
+    </select>
+    <p ng-show="(registerForm.Country.$dirty || submitted) && registerForm.Country.$error.required">You must enter Country</p>
+  </div>
+
+  <!-- Email -->
+  <div class="form-group">
+    <label>Email</label>
+    <input type="email" name="Email" ng-model="regCtrl.Email" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" required>
+    <p ng-show="(registerForm.Email.$dirty || submitted) && registerForm.Email.$error.required">You must enter an Email address</p>
+    <p ng-show="registerForm.Email.$error.pattern">This is not a valid Email address</p>
+  </div>
+
+  <!-- Categories -->
+  <div class="form-group">
+    <label>Select at least 2 categories you are interesed in:</label>
+    <br>
+    <label style="padding-left: 1%" ng-repeat="cat in regCtrl.cats">
+      <input type="checkbox" ng-click="regCtrl.chooseCat(cat.id)" ng-checked="regCtrl.categories.indexOf(cat.id)"> {{cat.text}}
+    </label>
+  </div>
+  <br/>
+
+  <!-- Q1 -->
+  <div class="form-group">
+    <label>Choose the first validation questions:</label>
+    <select id="q1" ng-model="regCtrl.Q1" required>
+      <option ng-repeat="x in regCtrl.questions1">{{x}}</option>
+    </select>
+    <input type="text" id="a1" name="a1" ng-model="regCtrl.A1" required ng-minlength="1" ng-pattern="/^[a-zA-Z]*$/"
+    />
+    <p ng-show="registerForm.a1.$error.pattern">Letters only!</p>
+  </div>
+
+  <!-- Q2 -->
+  <div class="form-group">
+    <label>Choose the first validation questions:</label>
+    <select id="q2" ng-model="regCtrl.Q2" required>
+      <option ng-repeat="x in regCtrl.questions2">{{x}}</option>
+    </select>
+    <input type="text" id="a2" name="a2" ng-model="regCtrl.A2" required ng-minlength="1" ng-pattern="/^[a-zA-Z]*$/"
+    />
+    <p ng-show="registerForm.a2.$error.pattern">Letters only!</p>
+
+  </div>
+  <br/>
+
+
+  <button type="submit" ng-disabled="registerForm.$invalid || regCtrl.selectedCategories.length < 2">Register</button>
+</form>

@@ -1,23 +1,20 @@
-<html ng-app="citiesApp">
-    <head><title>Poi App</title>
+<html ng-app="ICC">
+    <head><title>Immune Cell Classifier</title>
         <link rel="stylesheet" type="text/css" href="s.css" />
 </head>
     <body ng-controller="indexController as indxCtrl">
             <div class="scrollmenu">
                     <a class="active" href="#/">Home</a>
                     <a href="#/uplodeFile">Upload</a>
-                    <a href="#/res">results</a>
-                    <a ng-if="!$root.isConnected" href="#/Login">Login</a>
-                    <a ng-if="$root.isConnected" ng-click="indxCtrl.reset()" href="#/">Logout</a>
-                    <a style="color: white">Hello {{$root.userName}} </a>
+                    <a href="#/res" ng-if="indxCtrl.showRes()">Results</a>
                 </div>
-
                 <br/>
                 <br/>
         <div  ng-view></div>
 
     </div>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
         <script src="node_modules/angular-local-storage/dist/angular-local-storage.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script> 
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>      

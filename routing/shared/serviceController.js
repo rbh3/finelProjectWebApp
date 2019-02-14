@@ -1,4 +1,4 @@
-angular.module('citiesApp')
+angular.module('ICC')
     .directive('fileModel', ['$parse', function ($parse) {
     return {
         restrict: 'A',
@@ -14,7 +14,7 @@ angular.module('citiesApp')
         }
     };
 }]);
-angular.module('citiesApp')
+angular.module('ICC')
     .service('fileUpload', ['$location','$rootScope', function ($location, $rootScope) {
    
 }]);

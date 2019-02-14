@@ -1,4 +1,4 @@
-angular.module('citiesApp')
+angular.module('ICC')
     .controller('uplodeFile', ['$scope','$location', '$rootScope', function($scope, $location,$rootScope){
     $scope.convert='yes';
     $scope.uploadFile = function(){

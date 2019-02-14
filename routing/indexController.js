@@ -1,9 +1,9 @@
-angular.module('citiesApp')
-    .controller('indexController',['$rootScope','localStorageModel', function ($rootScope,localStorageModel) {
-
+angular.module('ICC')
+    .controller('indexController',['$rootScope', function ($rootScope) {
         self = this;
-        $rootScope.userName="Guest"
-        $rootScope.isConnected=false;
-        $rootScope.localFav=[];
 
+        self.showRes = ()=>
+        {
+            return $rootScope.form!=undefined;
+        }
     }]);

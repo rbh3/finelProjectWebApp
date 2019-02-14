@@ -1,4 +1,4 @@
-let app = angular.module('citiesApp', ["ngRoute", 'LocalStorageModule']);
+let app = angular.module('ICC', ["ngRoute", 'LocalStorageModule']);
 
 app.config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider)  {
     $locationProvider.hashPrefix('');
@@ -7,10 +7,6 @@ app.config(['$locationProvider', '$routeProvider', function($locationProvider, $
         .when('/', {
         templateUrl: 'components/About/about.html',
         controller : 'aboutController as abtCtrl'
-        })
-        .when('/about', {
-            templateUrl: 'components/About/about.html',
-            controller : 'aboutController as abtCtrl'
         })
         .when('/res', {
             templateUrl: 'components/classifier/res.html',

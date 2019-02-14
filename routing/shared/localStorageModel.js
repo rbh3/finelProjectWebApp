@@ -1,4 +1,4 @@
-angular.module("citiesApp")
+angular.module("ICC")
     .service('localStorageModel', ['localStorageService', function (localStorageService) {
 
         var self = this;

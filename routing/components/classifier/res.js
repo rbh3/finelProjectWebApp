@@ -1,4 +1,4 @@
-angular.module('citiesApp')
+angular.module('ICC')
     .controller('res', ['$rootScope','$location', function ($rootScope, $location) {
         let self = this;
         self.uploadFileToUrl = function(){
@@ -6,10 +6,15 @@ angular.module('citiesApp')
                 form=$rootScope.form;
                 if(!form){
                     document.getElementById('warn').style.display = "block";
+                    document.getElementById('load').style.display = "none";
+                    document.getElementById('graph').style.display = "none";
                     return
                 }
-                else
+                else{
+                    document.getElementById('load').style.display = "block";
                     document.getElementById('warn').style.display = "none";
+                    document.getElementById('graph').style.display = "block";
+                }
                 self.isLoading=true;
                 let f= new FormData();
                 f.append('file',form.file)
@@ -54,12 +59,13 @@ angular.module('citiesApp')
             return;
         }
     }
-        self.drawChart= () => {
+
+    self.drawChart= () => {
             document.getElementById('graph').style.display = "block";
             document.getElementById('load').style.display = "none";
             var resultArray = $rootScope.results.output
             var confidenceArray =  $rootScope.results.confidence
-
+            document.getElementById('CellsNo').innerText = "Number Of Cells: "+ $rootScope.results.CellsNo ;
             var counts = {};
             var conf = {};
             for(x in resultArray){
@@ -82,12 +88,83 @@ angular.module('citiesApp')
             var data = google.visualization.arrayToDataTable(pie);
             var dataConf= google.visualization.arrayToDataTable(column);
             // Optional; add a title and set the width and height of the chart
-            var options = {'title':'Classifications', 'width':'50%', 'height':'40%'};
+            var options = {'title':'Classifications', 'width':'80%', 'height':'50%'};
             var chart = new google.visualization.PieChart(document.getElementById('piechart'));
             chart.draw(data, options);
 
-            var optionsConf = {'title':'Confidence Level', 'width':'50%', 'height':'40%'};
+            var optionsConf = {'title':'Distribution of Confidence', 'width':'80%', 'height':'50%'};
             var chart = new google.visualization.ColumnChart(document.getElementById('confidance'));
             chart.draw(dataConf, optionsConf);
-        };
+    };
+
+    self.convertToCSV = (objArray) => {
+        var array = typeof objArray != 'object' ? JSON.parse(objArray) : objArray;
+        var str = '';
+        for (var i = 0; i < array.length; i++) {
+            var line = '';
+            for (var index in array[i]) {
+                if (line != '') line += ','
+    
+                line += array[i][index];
+            }
+            str += line + '\r\n';
+        }
+        return str;
+    }
+    
+    self.exportCSVFile= (headers, items, fileTitle) => {
+        if (headers) {
+            items.unshift(headers);
+        }
+        // Convert Object to JSON
+        var jsonObject = JSON.stringify(items);
+        var csv = self.convertToCSV(jsonObject);
+        var exportedFilenmae = fileTitle + '.csv' || 'export.csv';
+    
+        var blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+        if (navigator.msSaveBlob) { // IE 10+
+            navigator.msSaveBlob(blob, exportedFilenmae);
+        } else {
+            var link = document.createElement("a");
+            if (link.download !== undefined) { // feature detection
+                // Browsers that support HTML5 download attribute
+                var url = URL.createObjectURL(blob);
+                link.setAttribute("href", url);
+                link.setAttribute("download", exportedFilenmae);
+                link.style.visibility = 'hidden';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            }
+        }
+    }
+    
+    self.download= ()=>{
+      var headers = {
+          num: 'Cell No', // remove commas to avoid errors
+          cellType: "Cell Type",
+          confidence: "Confidence"
+      };
+      itemsNotFormatted=[];
+      
+      for(i in  $rootScope.results.output)
+          itemsNotFormatted.push({ 
+                  cellType:  $rootScope.results.output[i],
+                  confidence:  $rootScope.results.confidence[i]
+          });
+    
+      var itemsFormatted = [];
+      // format the data
+      itemsNotFormatted.forEach((item,index) => {
+          itemsFormatted.push({
+              num: index+1,
+              cellType: item.cellType,
+              confidence: item.confidence
+          });
+      });
+      const fn=$rootScope.form.file.name.split('.')[0]
+      var fileTitle = fn+'_predicted';
+    
+      self.exportCSVFile(headers, itemsFormatted, fileTitle);
+    }
 }]);

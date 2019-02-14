@@ -1,4 +1,4 @@
-angular.module('citiesApp')
+angular.module('ICC')
 .controller('aboutController', ['$scope', function($scope) {
     
   }]);

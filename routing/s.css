@@ -78,3 +78,12 @@ table {
       font-size: 25px;
       font-family: 'Abel', sans-serif;
     }
+
+#form_container
+{
+	background:#318ce7;
+	margin:0 auto;
+	text-align:left;
+    width:750px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}

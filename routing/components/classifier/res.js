@@ -1,5 +1,5 @@
 angular.module('ICC')
-    .controller('res', ['$rootScope','$location', function ($rootScope, $location) {
+    .controller('res', ['$rootScope','$location', '$scope', function ($rootScope, $location, $scope) {
         let self = this;
         self.uploadFileToUrl = function(){
             try{
@@ -13,7 +13,7 @@ angular.module('ICC')
                 else{
                     document.getElementById('load').style.display = "block";
                     document.getElementById('warn').style.display = "none";
-                    document.getElementById('graph').style.display = "block";
+                    document.getElementById('graph').style.display = "none";
                 }
                 self.isLoading=true;
                 let f= new FormData();
@@ -35,7 +35,10 @@ angular.module('ICC')
                     body: f, // body data type must match "Content-Type" header
                 })
                 .then(async function (response) {
-                    
+                    if(!response.ok)
+                    {
+                        throw Error(response.statusText);
+                    }
                     const jsonString=await response.text().then(s=>s);
                     const res=JSON.parse(jsonString); 
                     $rootScope.results=res;
@@ -47,15 +50,17 @@ angular.module('ICC')
                     //error   
                     self.isLoading=false;
                     console.log(response)
-                    alert("Something went wrong. Please Try Again");
-                    $location.path='/About'
+                    $rootScope.form = undefined;
+                    alert("Something went wrong. Please Try Again") 
+                    $scope.$apply(function () { $location.path('/uplodeFile')} );
                     return;
                 });
         }catch(Exception){
             self.isLoading=false;
             console.log(response)
-            alert("Something went wrong. Please Try Again");
-            $location.url='/About'
+            $rootScope.form = undefined;
+            alert("Something went wrong. Please Try Again")
+            $scope.$apply(function () { $location.path('/uplodeFile')} );
             return;
         }
     }
@@ -166,5 +171,9 @@ angular.module('ICC')
       var fileTitle = fn+'_predicted';
     
       self.exportCSVFile(headers, itemsFormatted, fileTitle);
+    }
+
+    self.refToUp = () =>{
+        $location.path("/uplodeFile");
     }
 }]);

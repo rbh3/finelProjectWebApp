@@ -1,39 +1,61 @@
 <br/>
 <br/>
 
-<form action="none" id="form_container" enctype="multipart/form-data">
-        <p>Upload a gene expression data file.</p>
+<div class="container">
+
+<form action="none" id="signup" enctype="multipart/form-data">
+        <div class="header">
+        
+                        <h3>Upload a Gene Expression Data File</h3>
+                                                
+        </div>
+        <div class="sep"></div>
+        <div class="inputs">
         <input type="file" file-model="myFile" />
         <br>
-        <p>What platform was used to collect this data?</p>
-        <input type="radio" ng-model="platform" value="microarray" checked/>Microarray
+        What platform was used to collect this data?
         <br>
-        <input type="radio" ng-model="platform" value="bulk rna" />Bulk RNA sequencing
+        <input type="radio" ng-model="platform" value="microarray" /> Microarray
         <br>
-        <input type="radio" ng-model="platform" value="single rna" />Single Cell RNA sequencing
-        <br> On what row number does the expression data start?
-        <input type="text" ng-model="start_row" />
-        <br> On what row number does the expression data end?
-        <input type="text" ng-model="end_row" />
+        <input type="radio" ng-model="platform" value="bulk rna" /> Bulk RNA sequencing
+        <br>
+        <input type="radio" ng-model="platform" value="single rna" /> Single Cell RNA sequencing
+        <br>
+        <br> Expression data start row:
+        <br>
+        <input type="number" ng-model="start_row" />
+        <br> Expression data end row:
+        <br>
+        <input type="number" ng-model="end_row" />
+        <br>
         <br> Are the genes labeled by gene symbol?
-        <input type="radio" ng-model="convert" value="no" />No
-        <input type="radio" ng-model="convert" value="yes" />Yes
+        <br>
+        <input type="radio" ng-model="convert" value="no" /> No
+        <br>
+        <input type="radio" ng-model="convert" value="yes" /> Yes
         <br>
         <!--<button type="button" onclick="expand()">No</button>
                         <button type="button" onclick="collapse()">Yes</button> -->
         <div id="demo" ng-hide="convert==='yes'">
+                <br>
                 <p>Upload the file for converting gene ID to gene symbol:</p>
                 <input type="file" file-model="conversion_file" />
-                <br> On what row number does the conversion data start?
-                <input type="text" ng-model="conv_start_row" />
-                <br> On what row number does the conversion data end?
-                <input type="text" ng-model="conv_end_row" />
-                <br> Which column is gene ID?
-                <input type="text" ng-model="id_col" />
-                <br> Which column is gene symbol?
-                <input type="text" ng-model="symbol_col" />
+                <br> Conversion data start row:
+                <br>
+                <input type="number" ng-model="conv_start_row" />
+                <br> Conversion data end row:
+                <br>
+                <input type="number" ng-model="conv_end_row" />
+                <br> Gene ID column:
+                <br>
+                <input type="number" ng-model="id_col" />
+                <br> Gene symbol column:
+                <br>
+                <input type="number" ng-model="symbol_col" />
                 <br>
         </div>
         <br>
-        <button  type="button" ng-click="uploadFile()">upload me</button>
+        <center><button type="submit" id="submit" ng-click="uploadFile()">Run Classification</button></center>
+</div>
 </form>
+</div>

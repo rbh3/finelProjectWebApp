@@ -14,7 +14,3 @@ angular.module('ICC')
         }
     };
 }]);
-angular.module('ICC')
-    .service('fileUpload', ['$location','$rootScope', function ($location, $rootScope) {
-   
-}]);

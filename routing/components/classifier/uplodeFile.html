@@ -1,7 +1,7 @@
 <br/>
 <br/>
 
-<div class="container">
+<div class="container" ng-init="initialToolTip()">
 
 <form action="none" id="signup" enctype="multipart/form-data">
         <div class="header">
@@ -12,8 +12,11 @@
         <div class="sep"></div>
         <div class="inputs">
         <input type="file" file-model="myFile" />
+
+        <img src="/assets/img/information.svg" class="tooltip23" ng-style="{'height': '15%','width':'20%'}"  title="This is my image's tooltip message!" />
         <br>
         What platform was used to collect this data?
+        <img src="/assets/img/information.svg" class="tooltip23" ng-style="{'height': '15%','width':'20%'}"  title="This is my image's tooltip message!" />
         <br>
         <input type="radio" ng-model="platform" value="microarray" /> Microarray
         <br>

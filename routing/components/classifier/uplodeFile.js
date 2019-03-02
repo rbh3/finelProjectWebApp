@@ -1,6 +1,11 @@
 angular.module('ICC')
     .controller('uplodeFile', ['$scope','$location', '$rootScope', function($scope, $location,$rootScope){
     $scope.convert='yes';
+    
+    $scope.initialToolTip = function(){
+        $('.tooltip23').tooltipster();
+    }
+
     $scope.uploadFile = function(){
         let form ={
             file: $scope.myFile,

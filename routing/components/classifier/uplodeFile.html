@@ -24,9 +24,8 @@
         </span><br>
         <br> Expression data start row:
         <br>
-        <input type="number" ng-model="start_row" required />
         <!-- <p ng-show="(uploadForm.start_row.$dirty || submitted) && uploadForm.start_row.$error.required">You must enter Username.</p> -->
-        <input type="number" ng-model="start_row" class="tooltip23" title="toolTip3"/>
+        <input type="number" ng-model="start_row" class="tooltip23" title="toolTip3" required/>
         <br> Expression data end row:
         <br>
         <input type="number" ng-model="end_row" class="tooltip23" title="toolTip4" />
@@ -47,8 +46,7 @@
                 <input type="file" file-model="conversion_file" class="tooltip23" title="toolTip6" />
                 <br> Conversion data start row:
                 <br>
-                <input type="number" ng-model="conv_start_row" ng-required="convert === 'no'"/>
-                <input type="number" ng-model="conv_start_row" class="tooltip23" title="toolTip7"/>
+                <input type="number" ng-model="conv_start_row" class="tooltip23" title="toolTip7" ng-required="convert === 'no'"/>
                 <br> Conversion data end row:
                 <br>
                 <input type="number" ng-model="conv_end_row" class="tooltip23" title="toolTip8"/>

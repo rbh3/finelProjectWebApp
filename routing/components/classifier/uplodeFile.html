@@ -3,7 +3,7 @@
 
 <div class="container" ng-init="initialToolTip()">
 
-<form action="none" id="signup" enctype="multipart/form-data">
+<form name="uploadForm" ng-submit="uploadFile(uploadForm.$valid)" action="none" id="signup" enctype="multipart/form-data" novalidate>
         <div class="header">
         
                         <h3>Upload a Gene Expression Data File</h3>
@@ -12,13 +12,12 @@
         <div class="sep"></div>
         <div class="inputs">
         <input type="file" file-model="myFile" />
-
         <img src="/assets/img/information.svg" class="tooltip23" ng-style="{'height': '15%','width':'20%'}"  title="This is my image's tooltip message!" />
         <br>
         What platform was used to collect this data?
         <img src="/assets/img/information.svg" class="tooltip23" ng-style="{'height': '15%','width':'20%'}"  title="This is my image's tooltip message!" />
         <br>
-        <input type="radio" ng-model="platform" value="microarray" /> Microarray
+        <input type="radio" ng-model="platform" value="microarray" required/> Microarray
         <br>
         <input type="radio" ng-model="platform" value="bulk rna" /> Bulk RNA sequencing
         <br>
@@ -26,14 +25,15 @@
         <br>
         <br> Expression data start row:
         <br>
-        <input type="number" ng-model="start_row" />
+        <input type="number" ng-model="start_row" required />
+        <!-- <p ng-show="(uploadForm.start_row.$dirty || submitted) && uploadForm.start_row.$error.required">You must enter Username.</p> -->
         <br> Expression data end row:
         <br>
         <input type="number" ng-model="end_row" />
         <br>
         <br> Are the genes labeled by gene symbol?
         <br>
-        <input type="radio" ng-model="convert" value="no" /> No
+        <input type="radio" ng-model="convert" value="no"/> No
         <br>
         <input type="radio" ng-model="convert" value="yes" /> Yes
         <br>
@@ -45,7 +45,7 @@
                 <input type="file" file-model="conversion_file" />
                 <br> Conversion data start row:
                 <br>
-                <input type="number" ng-model="conv_start_row" />
+                <input type="number" ng-model="conv_start_row" ng-required="convert === 'no'"/>
                 <br> Conversion data end row:
                 <br>
                 <input type="number" ng-model="conv_end_row" />
@@ -58,7 +58,8 @@
                 <br>
         </div>
         <br>
-        <center><button type="submit" id="submit" ng-click="uploadFile()">Run Classification</button></center>
+        <!-- <center><button type="submit" id="submit" ng-click="uploadFile()">Run Classification</button></center> -->
+        <center><button type="submit" id="submit" ng-disabled="uploadForm.$invalid">Run Classification</button></center>
 </div>
 </form>
 </div>

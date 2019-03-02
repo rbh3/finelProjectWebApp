@@ -169,8 +169,8 @@ input:-moz-placeholder {
     -webkit-border-radius: 3px;
     border-radius: 3px;
     border: none;
-    padding: 13px 10px;
-    width: 330px;
+    padding: 10px 10px;
+    width: 100px;
     margin-bottom: 20px;
     box-shadow: inset 0px 2px 3px rgba( 0,0,0,0.1 );
     clear: both;

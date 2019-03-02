@@ -5,7 +5,7 @@ angular.module('ICC')
         let form ={
             file: $scope.myFile,
             start_row: $scope.start_row,
-            end_row:  $scope.end_row,
+            end_row:  $scope.end_row || 0,
             platform:  $scope.platform,
             convert: $scope.convert
         }

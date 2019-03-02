@@ -1,9 +1,13 @@
 angular.module('ICC')
     .controller('uplodeFile', ['$scope','$location', '$rootScope', function($scope, $location,$rootScope){
     $scope.convert='yes';
-    
+
     $scope.initialToolTip = function(){
-        $('.tooltip23').tooltipster();
+        $('.tooltip23').tooltipster({
+            theme: 'tooltipster-punk',
+            side: 'left',
+            distance: 30
+        });
     }
 
     $scope.uploadFile = function(){

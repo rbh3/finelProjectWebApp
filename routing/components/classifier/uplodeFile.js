@@ -1,6 +1,8 @@
 angular.module('ICC')
     .controller('uplodeFile', ['$scope','$location', '$rootScope', function($scope, $location,$rootScope){
     $scope.convert='yes';
+    $scope.id_col=1;
+    $scope.symbol_col=2;
 
     $scope.initialToolTip = function(){
         $('.tooltip23').tooltipster({
@@ -21,7 +23,7 @@ angular.module('ICC')
         if( $scope.convert === 'no'){
             form.conversion_file= $scope.conversion_file
             form.conv_start_row=$scope.conv_start_row
-            form.conv_end_row=$scope.conv_end_row
+            form.conv_end_row=$scope.conv_end_row || 0
             form.id_col=$scope.id_col
             form.symbol_col=$scope.symbol_col
         }

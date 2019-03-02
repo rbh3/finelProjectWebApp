@@ -11,50 +11,53 @@
         </div>
         <div class="sep"></div>
         <div class="inputs">
-        <input type="file" file-model="myFile" />
-        <img src="/assets/img/information.svg" class="tooltip23" ng-style="{'height': '15%','width':'20%'}"  title="This is my image's tooltip message!" />
+        <input type="file" file-model="myFile" class="tooltip23" title="toolTip1"/>
         <br>
+        <span class="tooltip23" title="toolTip2">
         What platform was used to collect this data?
-        <img src="/assets/img/information.svg" class="tooltip23" ng-style="{'height': '15%','width':'20%'}"  title="This is my image's tooltip message!" />
-        <br>
-        <input type="radio" ng-model="platform" value="microarray" required/> Microarray
+        <br />
+        <input type="radio" ng-model="platform" value="microarray" /> Microarray
         <br>
         <input type="radio" ng-model="platform" value="bulk rna" /> Bulk RNA sequencing
         <br>
         <input type="radio" ng-model="platform" value="single rna" /> Single Cell RNA sequencing
-        <br>
+        </span><br>
         <br> Expression data start row:
         <br>
         <input type="number" ng-model="start_row" required />
         <!-- <p ng-show="(uploadForm.start_row.$dirty || submitted) && uploadForm.start_row.$error.required">You must enter Username.</p> -->
+        <input type="number" ng-model="start_row" class="tooltip23" title="toolTip3"/>
         <br> Expression data end row:
         <br>
-        <input type="number" ng-model="end_row" />
+        <input type="number" ng-model="end_row" class="tooltip23" title="toolTip4" />
         <br>
-        <br> Are the genes labeled by gene symbol?
+        <span class="tooltip23" title="toolTip5">
+        Are the genes labeled by gene symbol?
         <br>
         <input type="radio" ng-model="convert" value="no"/> No
         <br>
         <input type="radio" ng-model="convert" value="yes" /> Yes
         <br>
+        </span>
         <!--<button type="button" onclick="expand()">No</button>
                         <button type="button" onclick="collapse()">Yes</button> -->
         <div id="demo" ng-hide="convert==='yes'">
                 <br>
                 <p>Upload the file for converting gene ID to gene symbol:</p>
-                <input type="file" file-model="conversion_file" />
+                <input type="file" file-model="conversion_file" class="tooltip23" title="toolTip6" />
                 <br> Conversion data start row:
                 <br>
                 <input type="number" ng-model="conv_start_row" ng-required="convert === 'no'"/>
+                <input type="number" ng-model="conv_start_row" class="tooltip23" title="toolTip7"/>
                 <br> Conversion data end row:
                 <br>
-                <input type="number" ng-model="conv_end_row" />
+                <input type="number" ng-model="conv_end_row" class="tooltip23" title="toolTip8"/>
                 <br> Gene ID column:
                 <br>
-                <input type="number" ng-model="id_col" />
+                <input type="number" ng-model="id_col" class="tooltip23" title="toolTip9"/>
                 <br> Gene symbol column:
                 <br>
-                <input type="number" ng-model="symbol_col" />
+                <input type="number" ng-model="symbol_col" class="tooltip23" title="toolTip10" />
                 <br>
         </div>
         <br>

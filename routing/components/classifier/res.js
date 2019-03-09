@@ -93,11 +93,11 @@ angular.module('ICC')
             var data = google.visualization.arrayToDataTable(pie);
             var dataConf= google.visualization.arrayToDataTable(column);
             // Optional; add a title and set the width and height of the chart
-            var options = {'title':'Classifications', 'width':'80%', 'height':'50%'};
+            var options = {'title':'Classifications', 'width':'80%', 'height':'50%', backgroundColor: 'transparent'};
             var chart = new google.visualization.PieChart(document.getElementById('piechart'));
             chart.draw(data, options);
 
-            var optionsConf = {'title':'Distribution of Confidence', 'width':'80%', 'height':'50%'};
+            var optionsConf = {'title':'Distribution of Confidence', 'width':'80%', 'height':'50%',  backgroundColor: 'transparent'};
             var chart = new google.visualization.ColumnChart(document.getElementById('confidance'));
             chart.draw(dataConf, optionsConf);
     };

@@ -8,7 +8,8 @@ angular.module('ICC')
         $('.tooltip23').tooltipster({
             theme: 'tooltipster-punk',
             side: 'left',
-            distance: 30
+            distance: 30,
+            maxWidth: 350 
         });
     }
 

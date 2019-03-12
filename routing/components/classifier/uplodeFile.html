@@ -7,9 +7,9 @@
         </div>
         <div class="sep"></div>
         <div class="inputs">
-        <span ng-style="{'color':'red','font-size': '155%'}">*</span><input type="file" file-model="myFile" class="tooltip23" title="toolTip1" ng-model="doc" valid-file required/>
+        <span ng-style="{'color':'red','font-size': '155%'}">*</span><input type="file" file-model="myFile" class="tooltip23" title="Upload a gene expression file. For further explanation – go to `Help & Examples` tab" ng-model="doc" valid-file required/>
         <br>
-        <span class="tooltip23" title="toolTip2">
+        <span class="tooltip23" title="Select the platform that was used to collect the gene expression data">
         <span ng-style="{'color':'red','font-size': '155%'}">*</span> What platform was used to collect this data?
         <br />
         <input type="radio" ng-model="platform" value="microarray" required/> Microarray
@@ -20,12 +20,12 @@
         </span><br>
         <br><span ng-style="{'color':'red','font-size': '155%'}">*</span> Expression data start row:
         <br>
-        <input type="number" name="start_row" ng-model="start_row" class="tooltip23" title="toolTip3" required/>
+        <input type="number" name="start_row" ng-model="start_row" class="tooltip23" title="Enter the start row number of the expression file" required/>
         <br> Expression data end row:<br />
         <br>
-        <input type="number" name="end_row" ng-model="end_row" class="tooltip23" title="toolTip4" min={{start_row+1}}/>        <span ng-if="(uploadForm.end_row.$dirty || submitted) && uploadForm.end_row.$error.min" ng-style="{'color':'red'}">End row must be greater than start row.</span>
+        <input type="number" name="end_row" ng-model="end_row" class="tooltip23" title="Enter the end row number of the expression file (NOTE: Must be greater than start row; If no value was set, the file's last line will be selected as the end row)" min={{start_row+1}}/>        <span ng-if="(uploadForm.end_row.$dirty || submitted) && uploadForm.end_row.$error.min" ng-style="{'color':'red'}">End row must be greater than start row.</span>
         <br>
-        <span class="tooltip23" title="toolTip5">
+        <span class="tooltip23" title="Choose Yes/No according to wither the genes are labeled by gene symbol (NOTE: By choosing `No` you will be asked to upload a gene ID-gene symbol conversion file)">
         <span ng-style="{'color':'red','font-size': '155%'}">*</span> Are the genes labeled by gene symbol?
         <br>
         <input type="radio" ng-model="convert" value="no"/> No
@@ -37,19 +37,19 @@
         <div id="demo" ng-hide="convert==='yes'">
                 <br>
                 <p><span ng-style="{'color':'red','font-size': '155%'}">*</span> Upload the file for converting gene ID to gene symbol:</p>
-                <input type="file" file-model="conversion_file" class="tooltip23" title="toolTip6" ng-model="doc" valid-file ng-required="convert === 'no'" />
+                <input type="file" file-model="conversion_file" class="tooltip23" title="Upload a gene ID-gene symbol convesion file. For further explanation – go to `Help & Examples` tab." ng-model="doc" valid-file ng-required="convert === 'no'" />
                 <br><span ng-style="{'color':'red','font-size': '155%'}">*</span> Conversion data start row:
                 <br>
-                <input type="number" name="conv_start_row" ng-model="conv_start_row" class="tooltip23" title="toolTip7" ng-required="convert === 'no'"/>
+                <input type="number" name="conv_start_row" ng-model="conv_start_row" class="tooltip23" title="Enter the start row number of the conversion file" ng-required="convert === 'no'"/>
                 <br> Conversion data end row:
                 <br>
-                <input type="number" name="conv_end_row" ng-model="conv_end_row" class="tooltip23" title="toolTip8" min="{{ conv_start_row + 1}}"/>        <span ng-if="(uploadForm.conv_end_row.$dirty || submitted) && uploadForm.conv_end_row.$error.min" ng-style="{'color':'red'}">End row must be greater than start row.</span>
+                <input type="number" name="conv_end_row" ng-model="conv_end_row" class="tooltip23" title="Enter the end row number of the conversion file (NOTE: Must be greater than start row; If no value was set, the file's last line will be selected as the end row)" min="{{ conv_start_row + 1}}"/>        <span ng-if="(uploadForm.conv_end_row.$dirty || submitted) && uploadForm.conv_end_row.$error.min" ng-style="{'color':'red'}">End row must be greater than start row.</span>
                 <br><span ng-style="{'color':'red','font-size': '155%'}">*</span> Gene ID column:
                 <br>
-                <input type="number" ng-model="id_col" class="tooltip23" title="toolTip9" required/>
+                <input type="number" ng-model="id_col" class="tooltip23" title="Enter the gene ID column number (of the conversion file)" required/>
                 <br><span ng-style="{'color':'red','font-size': '155%'}">*</span> Gene symbol column:
                 <br>
-                <input type="number" ng-model="symbol_col" class="tooltip23" title="toolTip10" required />
+                <input type="number" ng-model="symbol_col" class="tooltip23" title="Enter the gene symbol column number (of the conversion file)" required />
         </div>
         <center><button type="submit" id="submit" ng-disabled="uploadForm.$invalid">Run Classification</button></center>
 </div>

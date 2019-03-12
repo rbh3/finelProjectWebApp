@@ -4,7 +4,7 @@ app.config(['$locationProvider', '$routeProvider', function($locationProvider, $
     $locationProvider.hashPrefix('');
 
     $routeProvider
-        .when('/', {
+        .when('/help', {
         templateUrl: 'components/About/about.html',
         controller : 'aboutController as abtCtrl'
         })
@@ -12,7 +12,7 @@ app.config(['$locationProvider', '$routeProvider', function($locationProvider, $
             templateUrl: 'components/classifier/res.html',
             controller : 'res as res'
         })
-        .when('/uplodeFile', {
+        .when('/', {
             templateUrl: 'components/classifier/uplodeFile.html',
             controller : 'uplodeFile as uplodeFile'
         })

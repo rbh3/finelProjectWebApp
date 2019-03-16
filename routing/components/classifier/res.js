@@ -29,6 +29,7 @@ angular.module('ICC')
                     f.append('id_col',form.id_col)
                     f.append('symbol_col',form.symbol_col)
                 }
+                f.append('isLabeled',form.isLabeled)
                 fetch("http://127.0.0.1:5000/uploader",{
                     method: "POST", // *GET, POST, PUT, DELETE, etc.
                     mode: "cors", // no-cors, cors, *same-origin
@@ -52,7 +53,7 @@ angular.module('ICC')
                     console.log(response)
                     $rootScope.form = undefined;
                     alert("Something went wrong. Please Try Again") 
-                    $scope.$apply(function () { $location.path('/uplodeFile')} );
+                    $scope.$apply(function () { $location.path('/')} );
                     return;
                 });
         }catch(Exception){
@@ -60,7 +61,7 @@ angular.module('ICC')
             console.log(response)
             $rootScope.form = undefined;
             alert("Something went wrong. Please Try Again")
-            $scope.$apply(function () { $location.path('/uplodeFile')} );
+            $scope.$apply(function () { $location.path('/')} );
             return;
         }
     }
@@ -71,6 +72,8 @@ angular.module('ICC')
             var resultArray = $rootScope.results.output
             var confidenceArray =  $rootScope.results.confidence
             document.getElementById('CellsNo').innerText = "Number Of Cells: "+ $rootScope.results.CellsNo ;
+            if ($rootScope.form.isLabeled)
+                document.getElementById('Precision').innerText = "Classification Precision: "+ Number($rootScope.results.Precision*100).toFixed(3)+"%" ;
             var counts = {};
             var conf = {};
             for(x in resultArray){
@@ -174,6 +177,6 @@ angular.module('ICC')
     }
 
     self.refToUp = () =>{
-        $location.path("/uplodeFile");
+        $location.path("/");
     }
 }]);

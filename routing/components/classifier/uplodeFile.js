@@ -28,6 +28,7 @@ angular.module('ICC')
             form.id_col=$scope.id_col
             form.symbol_col=$scope.symbol_col
         }
+        form.isLabeled= $scope.isLabeled || false
         console.dir(form.file)
         $rootScope.form=form;
         $location.path('/res')

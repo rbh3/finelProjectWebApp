@@ -1,13 +1,13 @@
 
 <div class="container" ng-init="initialToolTip()">
 
-<form name="uploadForm" ng-submit="uploadFile(uploadForm.$valid)" action="none" id="signup" enctype="multipart/form-data" novalidate>
+<form name="uploadForm" ng-submit="uploadFile(uploadForm.$valid)" action="" id="signup" enctype="multipart/form-data" novalidate>
         <div class="header">
         <h3>Upload a Gene Expression Data File</h3>                                                                                  
         </div>
         <div class="sep"></div>
         <div class="inputs">
-        <span ng-style="{'color':'red','font-size': '155%'}">*</span><input type="file" file-model="myFile" class="tooltip23" title="Upload a gene expression file. For further explanation – go to `Help & Examples` tab" ng-model="doc" valid-file required/>
+        <span ng-style="{'color':'red','font-size': '155%'}">*</span><input type="file"  accept="text/plain" file-model="myFile" class="tooltip23" title="Upload a gene expression file. For further explanation – go to `Help & Examples` tab" ng-model="doc" valid-file required/>
         <br>
         <span class="tooltip23" title="Select the platform that was used to collect the gene expression data">
         <span ng-style="{'color':'red','font-size': '155%'}">*</span> What platform was used to collect this data?
@@ -36,7 +36,7 @@
         <div id="demo" ng-hide="convert==='yes'">
                 <br>
                 <p><span ng-style="{'color':'red','font-size': '155%'}">*</span> Upload the file for converting gene ID to gene symbol:</p>
-                <input type="file" file-model="conversion_file" class="tooltip23" title="Upload a gene ID-gene symbol convesion file. For further explanation – go to `Help & Examples` tab." ng-model="doc" valid-file ng-required="convert === 'no'" />
+                <input type="file"  accept="text/plain" file-model="conversion_file" class="tooltip23" title="Upload a gene ID-gene symbol convesion file. For further explanation – go to `Help & Examples` tab." ng-model="doc" valid-file ng-required="convert === 'no'" />
                 <br><span ng-style="{'color':'red','font-size': '155%'}">*</span> Conversion data start row:
                 <br>
                 <input type="number" name="conv_start_row" ng-model="conv_start_row" class="tooltip23" title="Enter the start row number of the conversion file" ng-required="convert === 'no'"/>

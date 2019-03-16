@@ -1,28 +1,3 @@
-/*
-body {
-    width: 100%;
-    height: auto;
-    padding-left: 1%;
-
-}
-.content
-{
-    margin-top:5%;
-}
-
-button
-{
-    background-color: #2ecc71;;
-    border-bottom: 2px solid #27ae60;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 20px;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);    
-}
-*/
 div.scrollmenu {
     z-index: 100;
     background-color: #333;
@@ -31,7 +6,7 @@ div.scrollmenu {
     position: fixed;
     right: 0;
     width: 100%;
-    white-space: normal;
+    white-space: nowrap;
 }
 
 div.scrollmenu a {
@@ -40,7 +15,7 @@ div.scrollmenu a {
     text-align: center;
     position: center;
     padding: 0.9%;
-    margin-left:20%;
+    width: 33.5%;
     text-decoration: none;
     font-size: 20px;  
 }
@@ -81,17 +56,6 @@ table {
       font-family: 'Abel', sans-serif;
     }
 
-
-/*
-#form_container
-{
-	background:#d9e1e9;
-	margin:2 auto;
-	text-align:left;
-    width:70%;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-*/
 body {
     background-image: url(http://kreativo.se/backlogin.jpg);
     background-size: cover;
@@ -226,14 +190,3 @@ input:-moz-placeholder {
         from(#a4b0cb),
         to(#b9c5dd));
 }
-
-/*
-#signup .inputs input[type="radio"], input[type="checkbox"]{
-	margin-bottom: 4px;
-	padding-left: 27px;
-	font-size: 15px;
-	line-height: 27px;
-	background-color: #c72c2c;
-	cursor: pointer;
-}
-*/

@@ -14,6 +14,10 @@ angular.module('ICC')
     }
 
     $scope.uploadFile = function(){
+        if($scope.myFile.type != 'text/plain'){
+            alert("Your gene expression file is not on the right format. Please upload only .txt files with tab delimiter. For further explanation – go to `Help & Examples` tab")
+            return;
+        }
         let form ={
             file: $scope.myFile,
             start_row: $scope.start_row,
@@ -22,6 +26,10 @@ angular.module('ICC')
             convert: $scope.convert
         }
         if( $scope.convert === 'no'){
+            if($scope.conversion_file.type != 'text/plain'){
+                alert("Your conversion file is not on the right format. Please upload only .txt files with tab delimiter. For further explanation – go to `Help & Examples` tab")
+                return;
+            }
             form.conversion_file= $scope.conversion_file
             form.conv_start_row=$scope.conv_start_row
             form.conv_end_row=$scope.conv_end_row || 0

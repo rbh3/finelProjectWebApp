@@ -51,7 +51,8 @@
                 <input type="number" ng-model="symbol_col" class="tooltip23" title="Enter the gene symbol column number (of the conversion file)" required />
         </div>
         <br>        <br>
-        <input type="checkbox" ng-model="isLabeled" /> Is the first row labeled? (for precision calculation)
+        <input type="checkbox" ng-model="isLabeled" class="tooltip23" title="Check if the first row contains the actual cell lables (for precision calculation)" /> 
+        <span class="tooltip23" title="Check if the first row contains the actual cell lables (for precision calculation)">Is the first row labeled?</span>
         <br>
         <center><button type="submit" id="submit" ng-disabled="uploadForm.$invalid">Run Classification</button></center>
 </div>

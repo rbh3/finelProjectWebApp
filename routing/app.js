@@ -12,6 +12,10 @@ app.config(['$locationProvider', '$routeProvider', function($locationProvider, $
             templateUrl: 'components/classifier/res.html',
             controller : 'res as res'
         })
+        .when('/viewRes', {
+            templateUrl: 'components/results/viewResults.html',
+            controller : 'viewResults as viewResults'
+        })
         .when('/', {
             templateUrl: 'components/classifier/uplodeFile.html',
             controller : 'uplodeFile as uplodeFile'

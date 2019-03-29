@@ -1,12 +1,71 @@
 <center ng-init="abtCtrl.init()">
-<h1>Immune Cells Classifier</h1>
-<br>
-<br>
 
 <div>
+    <h3>Expression Data (no conversion required)</h3>
+    <div ng-style="{'text-align': 'left', 'padding-left': '10%'}">The expression data file will contain genes (rows) and cells (columns). Each inner value of the file will hold the expression level of the given gene in the given cell.<br>
+    Here is an example of such file:</div>
+    <!--simple expression file-->
+    <img ng-style="{'height': '80%','width':'80%'}" ng-src="/assets/img/Expression Data File.png" />
+
+    <br>
+    <br>
+    <div ng-style="{'text-align': 'left', 'padding-left': '10%'}">When uploading an expression data file, figure out the following details:<br>
+        1.	The platform that was used to collect the data (Microarray/Bulk RNA Sequencing/Single Cell RNA Sequencing)<br>
+        2.	Expression data start row<br>
+        3.	Expression data end row (If no value was given – will default choose the last line of the file)<br>
+        4.	Is the first row labeled? (cells labels)<br>
+        5.	Is the second row titled? (cells titles)<br>
+        6.	Are the genes labeled by gene symbol? If not, upload a conversion file as well<br>
+    </div>
+    <br>
+
+    <div ng-style="{'text-align': 'left', 'padding-left': '10%'}"><b>Example file: </b><a href="/assets/Files/GSE116347_bulk_mouse_expression.txt" download>GSE116347_bulk_mouse_expression</a></div>
+    <div ng-style="{'text-align': 'left', 'padding-left': '10%'}"><b>File details:</b><br>
+        Platform: Bulk RNA Sequencing<br>
+        Data start row: 3<br>
+        Data end row: 52999 (optional)<br>
+        Genes labeled by gene symbol: Yes<br>
+        First row labeled: Yes<br>
+        Second row titled: Yes<br>
+    </div>
+
+    <h3>Conversion File</h3>
+    <div ng-style="{'text-align': 'left', 'padding-left': '10%'}">In case the genes in the expression data are not labeled by gene symbol, a conversion file should be attached.<br>
+        Here is an example of a conversion file:
+    </div>
+    <!--Converion - conversion file-->
+    <img ng-style="{'height': '80%','width':'80%'}" ng-src="/assets/img/Conversion Conversion File.png" />
+
+    <br>
+    <br>
+    <div ng-style="{'text-align': 'left', 'padding-left': '10%'}">When uploading a conversion file, figure out:<br>
+        1.	Conversion data start row<br>
+        2.	Conversion data end row (If no value was given – will default choose the last line of the file)<br>
+        3.	Gene ID column<br>
+        4.	Gene symbol column<br>
+    </div>
+    <br>
+
+    <div ng-style="{'text-align': 'left', 'padding-left': '10%'}"><b>Expression example file: </b><a href="/assets/Files/GSE70941_bulk_expression.txt" download>GSE70941_bulk_expression</a></div>
+    <div ng-style="{'text-align': 'left', 'padding-left': '10%'}"><b>Expression file details:</b><br>
+        Platform: Bulk RNA Sequencing<br>
+        Data start row: 3<br>
+        Data end row: 22298 (optional)<br>
+        Genes labeled by gene symbol: No<br>
+    </div>
+    <br>
+    <div ng-style="{'text-align': 'left', 'padding-left': '10%'}"><b>Conversion example file: </b><a href="/assets/Files/GSE70941_bulk_conversion.txt" download>GSE70941_bulk_conversion</a></div>
+    <div ng-style="{'text-align': 'left', 'padding-left': '10%'}"><b>Conversion file details:</b><br>
+        Conversion start row: 2<br>
+        Conversion end row: 63815 (optional)<br>
+        Gene ID column: 1 (default)<br>
+        Gene symbol column: 2 (default)<br>
+    </div>
+    <br>
     
-    <img ng-style="{'height': '60%','width':'20%'}" ng-src="/assets/img/enter.png" />
-    <!-- <h3>Explore popular sites in the city</h3> -->
+
+    
+    
 
     <h4>© Made by Ravid Ben Harosh & Dor Bartal</h4>
 </div>

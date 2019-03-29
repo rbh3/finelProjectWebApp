@@ -38,7 +38,7 @@ angular.module('ICC')
                 .then(async function (response) {
                     if(!response.ok)
                     {
-                        throw Error(response.statusText);
+                        throw response;
                     }
                     const jsonString=await response.text().then(s=>s);
                     const res=JSON.parse(jsonString); 
@@ -47,12 +47,16 @@ angular.module('ICC')
                     google.charts.setOnLoadCallback(self.drawChart);
                     self.isLoading=false;
                 })
-                .catch((response)=> {
+                .catch(async (response)=> {
                     //error   
                     self.isLoading=false;
-                    console.log(response)
+                    try{
+                    msg= await response.json()
+                    } catch(e){
+                        msg={errMsg:'Internal Error'};
+                    }
                     $rootScope.form = undefined;
-                    alert("Something went wrong. Please Try Again") 
+                    alert("Something went wrong.\n"+ msg.errMsg+ "\nPlease Try Again") 
                     $scope.$apply(function () { $location.path('/')} );
                     return;
                 });

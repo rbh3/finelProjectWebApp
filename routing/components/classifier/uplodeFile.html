@@ -54,6 +54,9 @@
         <input type="checkbox" ng-model="isLabeled" class="tooltip23" title="Check if the first row of the expression data file contains the actual cell labels (for precision calculation)" /> 
         <span class="tooltip23" title="Check if the first row of the expression data file contains the actual cell labels (for precision calculation)">Is the first row labeled?</span>
         <br>
+        <input type="checkbox" ng-model="isTitled" class="tooltip23" title="Check if the second row of the expression data file contains the cell title" /> 
+        <span class="tooltip23" title="Check if the second row of the expression data file contains the cell title">Is the second row titled?</span>
+        <br>
         <center><button type="submit" id="submit" ng-disabled="uploadForm.$invalid">Run Classification</button></center>
 </div>
 </form>

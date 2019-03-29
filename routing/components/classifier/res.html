@@ -8,6 +8,7 @@
         <center><h2 id="CellsNo"></h2></center>
         <center><h2 id="Precision"></h2></center>
         <div id="piechart" ng-style="{'float':'left', 'height': '60%' , 'width':'50%'}"></div><div id="confidance" ng-style="{'float':'right', 'height': '60%' , 'width':'50%'}"></div>
-        <button class="download-wrapper" ng-click="res.download()"><p class="download"><i class="material-icons" ng-style="{'font-size': '35px'}">file_download</i><br/>Export Result to CSV File</p></button>               
+        <button class="download-wrapper" ng-click="res.download(false)"><p class="download"><i class="material-icons" ng-style="{'font-size': '35px'}">file_download</i><br/>Export Result to CSV File</p></button>               
+        <button class="download-wrapper" ng-click="res.download(true)"><p class="download">View Results</p></button>               
     </div>
 </center>

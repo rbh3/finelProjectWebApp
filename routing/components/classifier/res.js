@@ -30,6 +30,7 @@ angular.module('ICC')
                     f.append('symbol_col',form.symbol_col)
                 }
                 f.append('isLabeled',form.isLabeled)
+                f.append('isTitled',form.isTitled)
                 fetch("http://127.0.0.1:5000/uploader",{
                     method: "POST", // *GET, POST, PUT, DELETE, etc.
                     mode: "cors", // no-cors, cors, *same-origin
@@ -151,17 +152,21 @@ angular.module('ICC')
         }
     }
     
-    self.download= ()=>{
+    self.download= (isView)=>{
       var headers = {
           num: 'Cell No', // remove commas to avoid errors
-          cellType: "Cell Type",
+          cellTitle:  $rootScope.results.Titles.length > 0 ? 'Cell Title' : undefined,
+          actualType: $rootScope.results.actual.length > 0 ?  'Actual Type': undefined,
+          predictedType: "Prediction Type",
           confidence: "Confidence"
       };
       itemsNotFormatted=[];
       
       for(i in  $rootScope.results.output)
           itemsNotFormatted.push({ 
-                  cellType:  $rootScope.results.output[i],
+                  predictedType:  $rootScope.results.output[i],
+                  actualType: $rootScope.results.actual.length > 0 ? $rootScope.results.actual[i].trim() : undefined,
+                  cellTitle: $rootScope.results.Titles.length > 0 ? $rootScope.results.Titles[i].trim() : undefined,
                   confidence:  $rootScope.results.confidence[i]
           });
     
@@ -170,14 +175,26 @@ angular.module('ICC')
       itemsNotFormatted.forEach((item,index) => {
           itemsFormatted.push({
               num: index+1,
-              cellType: item.cellType,
+              cellTitle: item.cellTitle,
+              actualType: item.actualType,
+              predictedType: item.predictedType,
               confidence: item.confidence
           });
       });
       const fn=$rootScope.form.file.name.split('.')[0]
       var fileTitle = fn+'_predicted';
     
+      if(isView){
+        self.refToViewResults(headers, itemsFormatted)
+        return;
+      }
       self.exportCSVFile(headers, itemsFormatted, fileTitle);
+    }
+
+    self.refToViewResults = (headers, itemsFormatted) =>{
+        const viewResults= {headers, itemsFormatted}
+        $rootScope.viewResults=viewResults
+        $location.path("/viewRes");
     }
 
     self.refToUp = () =>{

@@ -7,7 +7,7 @@
         </div>
         <div class="sep"></div>
         <div class="inputs">
-        <span ng-style="{'color':'red','font-size': '155%'}">*</span><input type="file"  accept="text/plain" file-model="myFile" class="tooltip23" title="Upload a gene expression file. For further explanation – go to `Help & Examples` tab" ng-model="doc" valid-file required/>
+        <span ng-style="{'color':'red','font-size': '155%', 'position':'absolute'}">*</span><input type="file" ng-style="{'position':'absolute', 'padding-left':'15px'}" accept="text/plain" file-model="myFile" class="tooltip23" title="Upload a gene expression file. For further explanation – go to `Help & Examples` tab" ng-model="doc" valid-file required/>
         <br>
         <span class="tooltip23" title="Select the gene expression measurment method">
         <span ng-style="{'color':'red','font-size': '155%'}">*</span> What platform was used to collect this data?
@@ -35,8 +35,8 @@
                         <button type="button" onclick="collapse()">Yes</button> -->
         <div id="demo" ng-hide="convert==='yes'">
                 <br>
-                <p><span ng-style="{'color':'red','font-size': '155%'}">*</span> Upload the file for converting gene ID to gene symbol:</p>
-                <input type="file"  accept="text/plain" file-model="conversion_file" class="tooltip23" title="Upload a gene ID-gene symbol convesion file. For further explanation – go to `Help & Examples` tab." ng-model="doc" valid-file ng-required="convert === 'no'" />
+                <p>Upload the file for converting gene ID to gene symbol:</p>
+                <span ng-style="{'color':'red','font-size': '155%','position':'absolute'}">*</span><input type="file" accept="text/plain" ng-style="{'position':'absolute', 'padding-left':'15px'}" file-model="conversion_file" class="tooltip23" title="Upload a gene ID-gene symbol convesion file. For further explanation – go to `Help & Examples` tab." ng-model="doc" valid-file ng-required="convert === 'no'" />
                 <br><span ng-style="{'color':'red','font-size': '155%'}">*</span> Conversion data start row:
                 <br>
                 <input type="number" min="1" name="conv_start_row" ng-model="conv_start_row" class="tooltip23" title="Enter the number of the first data row number the conversion file" ng-required="convert === 'no'"/>

@@ -40,6 +40,7 @@ angular.module('ICC')
         form.isTitled= $scope.isTitled || false
         console.dir(form.file)
         $rootScope.form=form;
+        $rootScope.results=undefined;
         $location.path('/res')
     };
 }]);

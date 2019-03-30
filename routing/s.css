@@ -197,7 +197,9 @@ input:-moz-placeholder {
 
 .links {
     text-align: left;
+    color: #0846f1;
     padding-left: 10%;
     font-size: 2.0rem;
     font-weight: bold;
+    text-decoration: underline;
 }

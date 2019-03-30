@@ -1,7 +1,10 @@
 <center ng-init="abtCtrl.init()">
 
+<a href="#/help#ExpData">Expression Data</a>
+<a href="#/help#ConvFile">Conversion File</a>
+
 <div>
-    <h3>Expression Data (no conversion required)</h3>
+    <p class="heads" id="ExpData">Expression Data</p>
     <div ng-style="{'text-align': 'left', 'padding-left': '10%'}">The expression data file will contain genes (rows) and cells (columns). Each inner value of the file will hold the expression level of the given gene in the given cell.<br>
     Here is an example of such file:</div>
     <!--simple expression file-->
@@ -27,9 +30,9 @@
         Genes labeled by gene symbol: Yes<br>
         First row labeled: Yes<br>
         Second row titled: Yes<br>
+        <br>
     </div>
-
-    <h3>Conversion File</h3>
+    <p class="heads" id="ConvFile">Conversion File</p>
     <div ng-style="{'text-align': 'left', 'padding-left': '10%'}">In case the genes in the expression data are not labeled by gene symbol, a conversion file should be attached.<br>
         Here is an example of a conversion file:
     </div>

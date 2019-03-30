@@ -190,3 +190,11 @@ input:-moz-placeholder {
         from(#a4b0cb),
         to(#b9c5dd));
 }
+
+.heads {
+    text-decoration: underline;
+    padding-left: 10%;
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: left;
+}

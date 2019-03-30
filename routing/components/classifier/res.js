@@ -76,7 +76,7 @@ angular.module('ICC')
             document.getElementById('load').style.display = "none";
             var resultArray = $rootScope.results.output
             var confidenceArray =  $rootScope.results.confidence
-            document.getElementById('CellsNo').innerText = "Number Of Cells: "+ $rootScope.results.CellsNo ;
+            document.getElementById('CellsNo').innerText = "Number of Cells: "+ $rootScope.results.CellsNo ;
             if ($rootScope.form.isLabeled)
                 document.getElementById('Precision').innerText = "Classification Precision: "+ Number($rootScope.results.Precision*100).toFixed(3)+"%" ;
             var counts = {};
@@ -101,11 +101,42 @@ angular.module('ICC')
             var data = google.visualization.arrayToDataTable(pie);
             var dataConf= google.visualization.arrayToDataTable(column);
             // Optional; add a title and set the width and height of the chart
-            var options = {'title':'Classifications', 'width':'80%', 'height':'50%', backgroundColor: 'transparent'};
+            var options = {
+                'title':'Distribution of Cell Types',
+                'titleTextStyle': {
+                    fontSize: 18,
+                    bold:true,
+                    italic:false
+                },
+                'width':'80%',
+                'height':'50%',
+                backgroundColor: 'transparent'
+            };
             var chart = new google.visualization.PieChart(document.getElementById('piechart'));
             chart.draw(data, options);
 
-            var optionsConf = {'title':'Distribution of Confidence', 'width':'80%', 'height':'50%',  backgroundColor: 'transparent'};
+            var optionsConf = {
+                'title':'Distribution of Confidence Levels',
+                'titleTextStyle': {
+                    fontSize: 18,
+                    bold:true,
+                    italic:false
+                },
+                'vAxis':{
+                    'title': 'Number of Cells',
+                    'titleTextStyle': {
+                        italic:false,
+                        bold:true
+                    }
+                },
+                'hAxis':{
+                    'title': 'Confidence Level',
+                    'titleTextStyle': {
+                        italic:false,
+                        bold:true
+                    }
+                },
+                'legend':'none', 'width':'80%', 'height':'50%',  backgroundColor: 'transparent'};
             var chart = new google.visualization.ColumnChart(document.getElementById('confidance'));
             chart.draw(dataConf, optionsConf);
     };

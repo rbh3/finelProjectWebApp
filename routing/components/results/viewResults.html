@@ -1,4 +1,28 @@
-<center ng-init='viewResults.init()'>
+<center ng-init="viewResults.init()">
     <div id="table">
+        <table class="table table-bordered table-striped">
+            <tr>
+                <td>Cell No</td>
+                <td ng-show="viewResults.shouldShowCellTitle()">Cell Title</td>
+                <td ng-show="viewResults.shouldShowCellLabel()">
+                        <select ng-model="FilterLabel" name="FilterLabel">
+                                <option value="">Actual Type</option>
+                                <option ng-repeat="x in viewResults.labels">{{x}}</option>
+                        </select></td>
+                <td><select ng-model="FilterPrediction" name="FilterPrediction">
+                        <option value="">Predicted Type</option>
+                        <option ng-repeat="x in viewResults.prediction">{{x}}</option>
+                </select></td>
+                <td>Confidence <img ng-click="viewResults.sortByConfidence()" width="15px" height="15px"
+                     ng-style="{'cursor':'pointer', 'position':'relative', 'margin-left':'61%'}" src="../../../assets/img/sort.svg" alt="Sort by confidence" /></td>
+            </tr>
+            <tr ng-repeat="row in viewResults.results |  filter: {predictedType: FilterPrediction, actualType: FilterLabel} | orderBy: viewResults.sortValue">
+                <td>{{row.num}}</td>
+                <td ng-show="viewResults.shouldShowCellTitle()">{{row.cellTitle}}</td>
+                <td ng-show="viewResults.shouldShowCellLabel()">{{row.actualType}}</td>
+                <td>{{row.predictedType}}</td>
+                <td>{{row.confidence}}</td>
+            </tr>
+        </table>
     </div>
 </center>

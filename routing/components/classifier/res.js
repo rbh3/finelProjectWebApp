@@ -157,7 +157,7 @@ angular.module('ICC')
           num: 'Cell No', // remove commas to avoid errors
           cellTitle:  $rootScope.results.Titles.length > 0 ? 'Cell Title' : undefined,
           actualType: $rootScope.results.actual.length > 0 ?  'Actual Type': undefined,
-          predictedType: "Prediction Type",
+          predictedType: "Predicted Type",
           confidence: "Confidence"
       };
       itemsNotFormatted=[];

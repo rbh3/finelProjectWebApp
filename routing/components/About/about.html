@@ -1,8 +1,6 @@
-<center ng-init="abtCtrl.init()">
-
-<a href="#/help#ExpData">Expression Data</a>
-<a href="#/help#ConvFile">Conversion File</a>
-
+<a href='' class="links" ng-style="{'text-align': 'left'}" ng-click="scrollTo('#ExpData')">Expression Data</a><br>
+<a href='' class="links" ng-style="{'text-align': 'left'}" ng-click="scrollTo('#ConvFile')">Conversion File</a>
+<center>
 <div>
     <p class="heads" id="ExpData">Expression Data</p>
     <div ng-style="{'text-align': 'left', 'padding-left': '10%'}">The expression data file will contain genes (rows) and cells (columns). Each inner value of the file will hold the expression level of the given gene in the given cell.<br>

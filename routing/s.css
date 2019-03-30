@@ -193,3 +193,10 @@ input:-moz-placeholder {
     font-weight: bold;
     text-align: left;
 }
+
+.links {
+    text-align: left;
+    padding-left: 10%;
+    font-size: 2.0rem;
+    font-weight: bold;
+}

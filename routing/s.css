@@ -24,11 +24,6 @@ div.scrollmenu a:hover {
     background-color: #777;
 }
 
-table {
-    border-collapse: separate; 
-    border-spacing: 1em
-}
-
 .download-wrapper {
     cursor: pointer;
     height: 110px;

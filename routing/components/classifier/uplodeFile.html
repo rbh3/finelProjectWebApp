@@ -8,7 +8,7 @@
         <div class="sep"></div>
         <div class="inputs">
         <span ng-style="{'color':'red','font-size': '155%', 'position':'absolute'}">*</span><input type="file" ng-style="{'position':'absolute', 'padding-left':'15px'}" accept="text/plain" file-model="myFile" class="tooltip23" title="Upload a gene expression file. For further explanation – go to `Help & Examples` tab" ng-model="doc" valid-file required/>
-        <br>
+        <br><br>
         <span class="tooltip23" title="Select the gene expression measurment method">
         <span ng-style="{'color':'red','font-size': '155%'}">*</span> What platform was used to collect this data?
         <br />
@@ -37,7 +37,7 @@
                 <br>
                 <p>Upload the file for converting gene ID to gene symbol:</p>
                 <span ng-style="{'color':'red','font-size': '155%','position':'absolute'}">*</span><input type="file" accept="text/plain" ng-style="{'position':'absolute', 'padding-left':'15px'}" file-model="conversion_file" class="tooltip23" title="Upload a gene ID-gene symbol convesion file. For further explanation – go to `Help & Examples` tab." ng-model="doc" valid-file ng-required="convert === 'no'" />
-                <br><span ng-style="{'color':'red','font-size': '155%'}">*</span> Conversion data start row:
+                <br><br><span ng-style="{'color':'red','font-size': '155%'}">*</span> Conversion data start row:
                 <br>
                 <input type="number" min="1" name="conv_start_row" ng-model="conv_start_row" class="tooltip23" title="Enter the number of the first data row number the conversion file" ng-required="convert === 'no'"/>
                 <br> Conversion data end row:
@@ -48,8 +48,7 @@
                 <input type="number" min="1" ng-model="id_col" class="tooltip23" title="Enter the gene ID column number (in the conversion file)" required/>
                 <br><span ng-style="{'color':'red','font-size': '155%'}">*</span> Gene symbol column:
                 <br>
-                <input type="number" min="1" ng-model="symbol_col" class="tooltip23" title="Enter the gene symbol column number (in the conversion file)" required />
-        </div>
+                <input type="number" min="1" ng-model="symbol_col" class="tooltip23" title="Enter the gene symbol column number (in the conversion file)" required /></div>
         <br>        <br>
         <input type="checkbox" ng-model="isLabeled" class="tooltip23" title="Check if the first row of the expression data file contains the actual cell labels (for precision calculation)" /> 
         <span class="tooltip23" title="Check if the first row of the expression data file contains the actual cell labels (for precision calculation)">Is the first row labeled?</span>

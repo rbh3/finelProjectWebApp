@@ -4,6 +4,13 @@ angular.module('ICC')
         self.uploadFileToUrl = function(){
             try{
                 form=$rootScope.form;
+                if(!!$rootScope.results){
+                    self.isLoading=false;
+                    document.getElementById('warn').style.display = "none";
+                    google.charts.load('current', {'packages':['corechart']});
+                    google.charts.setOnLoadCallback(self.drawChart);
+                    return;
+                }  
                 if(!form){
                     document.getElementById('warn').style.display = "block";
                     document.getElementById('load').style.display = "none";

@@ -1,0 +1,11 @@
+<center ng-init="confMatrix.init()">
+    <div>
+        <p ng-style="{'align':'left', 'vertical-align': 'middle', 'text-align': 'center', 'color':'black', 'font-size':'20px', 'font-weight':'bold'}">Actual Types</p>
+        <table class="table table-bordered" ng-style="{'background-color':'white','height':'60%', 'width':'60%', 'table-layout':'fixed'}">
+            <caption ng-style="{'align':'left', 'text-align': 'center', 'color':'black', 'font-size':'20px', 'font-weight':'bold'}">Predicted Types</caption>
+                <tr ng-repeat="item in confMatrix.conf_mat">
+                    <td ng-repeat="i in item track by $index" ng-style="{'width':'10%'}" class="{{confMatrix.getColor($parent.$index, $index)}}">{{i}}</td>
+                </tr>
+        </table>
+    </div>
+</center>

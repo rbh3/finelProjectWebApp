@@ -222,11 +222,24 @@ angular.module('ICC')
       const fn=$rootScope.form.file.name.split('.')[0]
       var fileTitle = fn+'_predicted';
     
-      if(isView){
+      if(isView === 'results'){
         self.refToViewResults(headers, itemsFormatted)
         return;
       }
-      self.exportCSVFile(headers, itemsFormatted, fileTitle);
+      if(isView === 'confusion'){
+        self.refToConfMat(headers, itemsFormatted)
+        return;
+      }
+      if(isView === 'download'){
+        self.exportCSVFile(headers, itemsFormatted, fileTitle);
+        return;
+      }
+    }
+
+    self.refToConfMat = (headers, itemsFormatted) =>{
+        const viewResults= {headers, itemsFormatted}
+        $rootScope.viewResults=viewResults
+        $location.path("/confMatrix");
     }
 
     self.refToViewResults = (headers, itemsFormatted) =>{

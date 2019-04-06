@@ -16,6 +16,10 @@ app.config(['$locationProvider', '$routeProvider', function($locationProvider, $
             templateUrl: 'components/results/viewResults.html',
             controller : 'viewResults as viewResults'
         })
+        .when('/confMatrix', {
+            templateUrl: 'components/results/confMatrix.html',
+            controller : 'confMatrix as confMatrix'
+        })
         .when('/', {
             templateUrl: 'components/classifier/uplodeFile.html',
             controller : 'uplodeFile as uplodeFile'

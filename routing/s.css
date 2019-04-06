@@ -203,3 +203,19 @@ input:-moz-placeholder {
     font-weight: bold;
     text-decoration: underline;
 }
+
+.confGreen {
+    background-color: lightgreen;
+}
+
+.confBlue {
+    background-color: lightskyblue;
+}
+
+.confOrange {
+    background-color: rgb(209, 157, 137);
+}
+
+.confRed {
+    background-color: rgb(233, 75, 75);
+};

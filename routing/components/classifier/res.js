@@ -40,7 +40,7 @@ angular.module('ICC')
                 f.append('isTitled',form.isTitled)
                 fetch(`${config.apiUrl}:${config.apiPort}/uploader`,{
                     method: "POST", // *GET, POST, PUT, DELETE, etc.
-                    mode: "no-cors", // no-cors, cors, *same-origin
+                    mode: "cors", // no-cors, cors, *same-origin
                     body: f, // body data type must match "Content-Type" header
                 })
                 .then(async function (response) {

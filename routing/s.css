@@ -53,7 +53,7 @@ div.scrollmenu a:hover {
 
 body {
     /* background-image: url(http://kreativo.se/backlogin.jpg); */
-    background-image: url(/assets/img/bk.JPG);
+    background-image: url(/routing/assets/img/bk.JPG);
     background-size: cover;
     font-family: "Helvetica Neue", Helvetica, Arial;
     padding-top: 20px;

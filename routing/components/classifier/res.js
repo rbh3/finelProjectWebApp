@@ -38,7 +38,7 @@ angular.module('ICC')
                 }
                 f.append('isLabeled',form.isLabeled)
                 f.append('isTitled',form.isTitled)
-                fetch("http://127.0.0.1:5000/uploader",{
+                fetch(`${config.apiUrl}:${config.apiPort}/uploader`,{
                     method: "POST", // *GET, POST, PUT, DELETE, etc.
                     mode: "cors", // no-cors, cors, *same-origin
                     body: f, // body data type must match "Content-Type" header

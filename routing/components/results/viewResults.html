@@ -14,7 +14,7 @@
                         <option ng-repeat="x in viewResults.prediction">{{x}}</option>
                 </select></td>
                 <td>Confidence <img ng-click="viewResults.sortByConfidence()" width="15px" height="15px"
-                     ng-style="{'cursor':'pointer', 'position':'relative', 'float':'right'}" src="../../../assets/img/sort.svg" alt="Sort by confidence" /></td>
+                     ng-style="{'cursor':'pointer', 'position':'relative', 'float':'right'}" src="../../assets/img/sort.svg" alt="Sort by confidence" /></td>
             </tr>
             <tr ng-repeat="row in viewResults.results |  filter: {predictedType: FilterPrediction, actualType: FilterLabel} | orderBy: viewResults.sortValue">
                 <td>{{row.num}}</td>

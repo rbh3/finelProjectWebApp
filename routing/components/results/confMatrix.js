@@ -39,8 +39,15 @@ angular.module('ICC')
             
             self.results=$rootScope.viewResults.itemsFormatted;
 
-            self.results.forEach((item)=> {
+            self.results.every((item)=> {
+                if(self.typesMap[item.actualType] === undefined){
+                    alert('One or more of the cell types in the file does\'t match the 12-types. See \'Help $ Examples\' tab');
+                    $rootScope.form = undefined;
+                    $location.path("/");
+                    return false;
+                }
                 self.conf_mat[self.typesMap[item.actualType]][self.typesMap[item.predictedType]] += 1;
+                return true;
             });  
         }
 

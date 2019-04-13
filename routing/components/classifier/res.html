@@ -1,8 +1,8 @@
 <center>
     <h2 id="warn" ng-click="res.refToUp()" ng-style="{'cursor': 'pointer'}">Please Upload First</h2>
     <div id="load">
-        <img src="/assets/img/index.dna-spin-spiral-preloader.svg" id="load" ng-style="{'height': '55%','width':'70%'}" />
-        <img src="/assets/img/output.svg" id="load" ng-style="{'height': '30%','width':'40%'}" />
+        <img src="../../assets/img/index.dna-spin-spiral-preloader.svg" id="load" ng-style="{'height': '55%','width':'70%'}" />
+        <img src="../../assets/img/output.svg" id="load" ng-style="{'height': '30%','width':'40%'}" />
     </div>
     <div ng-init="res.uploadFileToUrl()" id="graph" ng-style="{'overflow': 'auto', 'height': '100%' , 'width':'100%'}" >
         <center><h2 id="CellsNo"></h2></center>
@@ -10,6 +10,6 @@
         <div id="piechart" ng-style="{'float':'left', 'height': '60%' , 'width':'50%'}"></div><div id="confidance" ng-style="{'float':'right', 'height': '60%' , 'width':'50%'}"></div>
         <button class="download-wrapper" ng-click="res.download('download')"><p class="download"><i class="material-icons" ng-style="{'font-size': '35px'}">file_download</i><br/>Export Results</p></button>
         <button class="download-wrapper" ng-click="res.download('results')"><p class="download"><i class="material-icons" ng-style="{'font-size': '35px'}">search</i><br/>View Results</p></button>
-        <button class="download-wrapper" ng-click="res.download('confusion')"><p class="download"><i class="material-icons" ng-style="{'font-size': '35px'}">search</i><br/>Confusion Matrix</p></button>
+        <button class="download-wrapper" ng-show="{{$root.form.isLabeled}}" ng-click="res.download('confusion')"><p class="download"><i class="material-icons" ng-style="{'font-size': '35px'}">search</i><br/>Confusion Matrix</p></button>
     </div>
 </center>

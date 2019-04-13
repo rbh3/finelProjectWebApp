@@ -55,7 +55,16 @@
         <br>
         <input type="checkbox" ng-model="isTitled" class="tooltip23" title="Check if the second row of the expression data file contains the cell title" /> 
         <span class="tooltip23" title="Check if the second row of the expression data file contains the cell title">Is the second row titled?</span>
-        <br>
+        <br>        <br>
+        <span class="tooltip23" title="Select one of our classification methods, KNN is the default one">
+                <span ng-style="{'color':'red','font-size': '155%'}">*</span> Select a classification methods:
+                <br />
+                <input type="radio" ng-model="clfMethod" value="KNN" required/> KNN
+                <br>
+                <input type="radio" ng-model="clfMethod" value="Random Forest" /> Random Forest
+                <br>
+                <input type="radio" ng-model="clfMethod" value="SVM" /> SVM
+                </span><br>
         <center><button type="button" ng-click="uploadFile(uploadForm.$valid)" id="submit" ng-disabled="uploadForm.$invalid">Run Classification</button></center>
 </div>
 </form>

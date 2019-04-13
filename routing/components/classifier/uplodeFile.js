@@ -3,6 +3,7 @@ angular.module('ICC')
     $scope.convert='yes';
     $scope.id_col=1;
     $scope.symbol_col=2;
+    $scope.clfMethod='KNN';
 
     $scope.initialToolTip = function(){
         $('.tooltip23').tooltipster({
@@ -23,7 +24,8 @@ angular.module('ICC')
             start_row: $scope.start_row,
             end_row:  $scope.end_row || 0,
             platform:  $scope.platform,
-            convert: $scope.convert
+            convert: $scope.convert,
+            clfMethod: $scope.clfMethod
         }
         if( $scope.convert === 'no'){
             if($scope.conversion_file.type != 'text/plain'){

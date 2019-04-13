@@ -38,6 +38,7 @@ angular.module('ICC')
                 }
                 f.append('isLabeled',form.isLabeled)
                 f.append('isTitled',form.isTitled)
+                f.append('clfMethod',form.clfMethod)
                 fetch(`${config.apiUrl}:${config.apiPort}/uploader`,{
                     method: "POST", // *GET, POST, PUT, DELETE, etc.
                     mode: "cors", // no-cors, cors, *same-origin
@@ -91,8 +92,26 @@ angular.module('ICC')
             for(x in resultArray){
                 counts[resultArray[x]] = (counts[resultArray[x]] || 0)+1;
             }
+            const range = [{
+                '0%-20%': [0, 0.2]
+              }, {
+                '20%-40%': [0.2, 0.4]
+              }, {
+                '40%-60%': [0.4, 0.6]
+              }, {
+                '60%-80%': [0.6, 0.8]
+              },
+              {
+                '80%-100%': [0.8, 1]
+              }];
+                         
             for(confidence in confidenceArray){
-                conf[confidenceArray[confidence]] = (conf[confidenceArray[confidence]] || 0)+1;
+                const number = confidenceArray[confidence]
+                const res = range.filter(function(el) {
+                    var key = el[Object.keys(el)];
+                    return number > key[0] && number <= key[1]
+                  });
+                conf[Object.keys(res[0])[0]] = (conf[Object.keys(res[0])[0]] || 0)+1;
             }
 
             let pie=[['Cell Type', 'Apperance']];
@@ -100,9 +119,9 @@ angular.module('ICC')
                 pie.push([i,counts[i]]);
 
             let column=[["Element","Cells"]];
-            const confSortedKeys=Object.keys(conf).sort(function(a,b){return a-b});
+            const confSortedKeys=["0%-20%","20%-40%","40%-60%","60%-80%","80%-100%"]
             for(let i=0;i<confSortedKeys.length;i++)
-                column.push([confSortedKeys[i],conf[confSortedKeys[i]]]);
+                column.push([confSortedKeys[i],conf[confSortedKeys[i]]===undefined ? 0 : conf[confSortedKeys[i]]]);
                 
             // Display the chart inside the <div> element with id="piechart"
             var data = google.visualization.arrayToDataTable(pie);
@@ -216,7 +235,7 @@ angular.module('ICC')
               cellTitle: item.cellTitle,
               actualType: item.actualType,
               predictedType: item.predictedType,
-              confidence: item.confidence
+              confidence: (item.confidence*100).toFixed(2)+ '%'
           });
       });
       const fn=$rootScope.form.file.name.split('.')[0]

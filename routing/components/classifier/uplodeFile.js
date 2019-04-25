@@ -19,6 +19,10 @@ angular.module('ICC')
             alert("Your gene expression file is not on the right format. Please upload only .txt files with tab delimiter. For further explanation – go to `Help & Examples` tab")
             return;
         }
+        if($scope.myFile.size > 200000000){
+            alert("File is too big! We support files up to 200 MB in size")
+            return;
+        }
         let form ={
             file: $scope.myFile,
             start_row: $scope.start_row,
@@ -30,6 +34,10 @@ angular.module('ICC')
         if( $scope.convert === 'no'){
             if($scope.conversion_file.type != 'text/plain'){
                 alert("Your conversion file is not on the right format. Please upload only .txt files with tab delimiter. For further explanation – go to `Help & Examples` tab")
+                return;
+            }
+            if($scope.conversion_file.size > 200000000){
+                alert("Conversion file is too big! We support files up to 200 MB in size")
                 return;
             }
             form.conversion_file= $scope.conversion_file

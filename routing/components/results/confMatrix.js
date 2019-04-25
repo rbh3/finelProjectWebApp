@@ -36,17 +36,19 @@ angular.module('ICC')
                 $location.path("/");
                 return;
             }
-            
+
+            const unknownTypes={};
+            let unknownCount =13;
+
             self.results=$rootScope.viewResults.itemsFormatted;
 
             self.results.every((item)=> {
                 if(self.typesMap[item.actualType] === undefined){
-                    alert('One or more of the cell types in the file does\'t match the 12-types. See \'Help $ Examples\' tab');
-                    $rootScope.form = undefined;
-                    $location.path("/");
-                    return false;
+                    unknownTypes[item.actualType] = unknownCount;
+                    unknownCount++;
+                    self.conf_mat.push([item.actualType,0,0,0,0,0,0,0,0,0,0,0,0])
                 }
-                self.conf_mat[self.typesMap[item.actualType]][self.typesMap[item.predictedType]] += 1;
+                self.conf_mat[self.typesMap[item.actualType]===undefined ? unknownTypes[item.actualType]: self.typesMap[item.actualType]][self.typesMap[item.predictedType]] += 1;
                 return true;
             });  
         }
@@ -62,5 +64,11 @@ angular.module('ICC')
                 return 'confOrange';
             if (self.conf_mat[item][i] !== 0 && item!==i)
                 return 'confRed';
+        };
+
+        self.getWidth = function (item, i) {
+            if (i===0)
+                return "{'width' : '30%'}";
+            return "{'width' : '10%'}";
         };
 }]);

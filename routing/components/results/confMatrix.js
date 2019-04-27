@@ -43,7 +43,7 @@ angular.module('ICC')
             self.results=$rootScope.viewResults.itemsFormatted;
 
             self.results.every((item)=> {
-                if(self.typesMap[item.actualType] === undefined){
+                if(self.typesMap[item.actualType] === undefined && unknownTypes[item.actualType] === undefined){
                     unknownTypes[item.actualType] = unknownCount;
                     unknownCount++;
                     self.conf_mat.push([item.actualType,0,0,0,0,0,0,0,0,0,0,0,0])

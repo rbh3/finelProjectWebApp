@@ -5,18 +5,18 @@
                 <td>Cell No</td>
                 <td ng-show="viewResults.shouldShowCellTitle()">Cell Title</td>
                 <td ng-show="viewResults.shouldShowCellLabel()">
-                        <select ng-model="FilterLabel" name="FilterLabel">
+                        <select ng-model="Filter.actualType" name="FilterLabel">
                                 <option value="">Actual Type</option>
                                 <option ng-repeat="x in viewResults.labels">{{x}}</option>
                         </select></td>
-                <td><select ng-model="FilterPrediction" name="FilterPrediction">
+                <td><select ng-model="Filter.predictedType" name="FilterPrediction">
                         <option value="">Predicted Type</option>
                         <option ng-repeat="x in viewResults.prediction">{{x}}</option>
                 </select></td>
                 <td>Confidence <img ng-click="viewResults.sortByConfidence()" width="15px" height="15px"
                      ng-style="{'cursor':'pointer', 'position':'relative', 'float':'right'}" src="../../assets/img/sort.svg" alt="Sort by confidence" /></td>
             </tr>
-            <tr ng-repeat="row in viewResults.results |  filter: {predictedType: (!!FilterPrediction||!!FilterLabel) ? FilterPrediction: undefined, actualType: (!!FilterLabel || !!FilterPrediction) ?FilterLabel: undefined } | orderBy: viewResults.sortValue">
+            <tr ng-repeat="row in viewResults.results |  filter: Filter : viewResults.filterMyData | orderBy: viewResults.sortValue">
                 <td>{{row.num}}</td>
                 <td ng-show="viewResults.shouldShowCellTitle()">{{row.cellTitle}}</td>
                 <td ng-show="viewResults.shouldShowCellLabel()">{{row.actualType}}</td>

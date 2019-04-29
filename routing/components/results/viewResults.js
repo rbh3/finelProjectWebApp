@@ -21,6 +21,14 @@ angular.module('ICC')
         }
         self.sortByConfidence = ()=> {self.sortValue= self.sortValue === "" ? "-'confidence'" : ""}
 
+        self.filterMyData = function (input, searchParam) {
+
+            if (searchParam == '')
+                 return true;
+       
+            return angular.equals(input, searchParam);
+       }
+
         // self.getFilter= ()=>{
         //     if($scope.FilterTitle != 'Cell Title' && $scope.FilterLabel != 'Actual Type')
         //         return $scope.FilterTitle && $scope.FilterLabel;

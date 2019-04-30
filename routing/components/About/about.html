@@ -1,9 +1,37 @@
-<a href='' class="links" ng-style="{'text-align': 'left'}" ng-click="scrollTo('#ExpData')">Expression Data</a><br>
-<a href='' class="links" ng-style="{'text-align': 'left'}" ng-click="scrollTo('#ConvFile')">Conversion File</a>
+<br>
+<p ng-style="{'text-align': 'left', 'padding-left': '10%', 'font-size':'4.0rem','font-weight':'bold'}">Welcome to the Immune Cells Classifier!</p>
+<div ng-style="{'text-align': 'left', 'padding-left': '10%', 'font-size': '2.0rem'}">Upload an expression data file (up to 200MB) and the classifier will classify the type of each cell.</div><br>
+<p class="heads">Go To:</p><ul ng-style="{'padding-left': '12%'}">
+<a href='' class="links" ng-style="{'text-align': 'left'}" ng-click="scrollTo('#ExpData')"><li>Expression Data Explanation</li></a>
+<a href='' class="links" ng-style="{'text-align': 'left'}" ng-click="scrollTo('#ConvFile')"><li>Conversion File Explanation</li></a>
+<a href='' class="links" ng-style="{'text-align': 'left'}" ng-click="scrollTo('#ResScreen')"><li>Results Screen Explanation</li></a>
+</ul>
+<div ng-style="{'text-align': 'left', 'padding-left': '10%', 'font-size': '2.0rem'}">The classifier will calculate a predicted type for each cell of the given input file.
+        There are 11 classified cell types, as follows:</div><br>
+        <ul id="myTypes">
+            <li class="type">B</li>
+            <li class="type">B1ab</li>
+            <li class="type">DC</li>
+            <li class="type">GN</li>
+            <li class="type">MF</li>
+            <li class="type">NK</li>
+            <li class="type">NKT</li>
+            <li class="type">T4</li>
+            <li class="type">T8</li>
+            <li class="type">Tgd</li>
+            <li class="type">Treg</li>
+            <li class="type">Other</li>
+        </ul>
+        <br>
+        <div ng-style="{'text-align': 'left', 'padding-left': '10%', 'font-size': '2.0rem'}">The groupings of cell sub-types used by the classifier are as follows:
+        <table><tr><td ng-style="{'padding-left':'0%'}"><img ng-src="../../assets/img/type1.jpeg" width="200px" height="400px" /></td><td ng-style="{'padding-left':'5%'}"><img ng-src="../../assets/img/type2.jpeg" width="200px" height="400px"  /></td><td ng-style="{'padding-left':'5%'}"><img ng-src="../../assets/img/type3.jpeg" width="200px" height="400px" /></td></tr></table></div><br>
+        <div ng-style="{'text-align': 'left', 'padding-left': '10%', 'font-size': '2.0rem'}">IMPORTANT: In order to properly calculate the classification accuracy, the cell types given in the input file must be the 11-type.</div><br>
 <center>
 <div>
+
     <p class="heads" id="ExpData">Expression Data</p>
     <div ng-style="{'text-align': 'left', 'padding-left': '10%'}">The expression data file will contain genes (rows) and cells (columns). Each inner value of the file will hold the expression level of the given gene in the given cell.<br>
+    Note: The system supports expression files of up to 200MB.</br>
     Here is an example of such file:</div>
     <!--simple expression file-->
     <img ng-style="{'height': '80%','width':'80%'}" ng-src="../../assets/img/Expression_Data_File.PNG" />
@@ -17,7 +45,9 @@
         4.	Is the first row labeled? (cells labels)<br>
         5.	Is the second row titled? (cells titles)<br>
         6.	Are the genes labeled by gene symbol? If not, upload a conversion file as well<br>
-    </div>
+    </div><br>
+    <div ng-style="{'text-align': 'left', 'padding-left': '10%'}"><b>Expression file tutorial: </b></div>
+    <iframe class="embeddedObject" name="embedded_content" scrolling="no" frameborder="0" type="text/html" style="overflow:hidden;" src="https://www.screencast.com/users/dor.bartal/folders/Jing/media/9610503f-735d-4682-9597-eac60c35a189/embed" height="60%" width="60%" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
     <br>
 
     <div ng-style="{'text-align': 'left', 'padding-left': '10%'}"><b>Example file: </b><a href="../assets/Files/GSE116347_bulk_mouse_expression.txt" download>GSE116347_bulk_mouse_expression</a></div>
@@ -46,9 +76,10 @@
         4.	Gene symbol column
         <br>
         <br>
-        Keep in mind that for full mapping of the genes, all genes of the expression data file must appear in the conversion file.
-    </div>
-    <br>
+        Keep in mind that for full conversion of the genes, all genes of the expression data file must appear in the conversion file.
+    </div><br>
+    <div ng-style="{'text-align': 'left', 'padding-left': '10%'}"><b>Conversion file tutorial: </b></div>
+    <iframe class="embeddedObject" name="embedded_content" scrolling="no" frameborder="0" type="text/html" style="overflow:hidden;" src="https://www.screencast.com/users/dor.bartal/folders/Jing/media/e52bfec3-192e-49e5-84b6-a956ebad8045/embed" height="60%" width="60%" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>    <br>
 
     <div ng-style="{'text-align': 'left', 'padding-left': '10%'}"><b>Expression example file: </b><a href="../../assets/Files/GSE70941_bulk_expression.txt" download>GSE70941_bulk_expression</a></div>
     <div ng-style="{'text-align': 'left', 'padding-left': '10%'}"><b>Expression file details:</b><br>
@@ -64,12 +95,14 @@
         Conversion end row: 63815 (optional)<br>
         Gene ID column: 1 (default)<br>
         Gene symbol column: 2 (default)<br>
+        First row labeled: No<br>
+        Second row titled: No<br>
     </div>
     <br>
-    
 
-    
-    
+    <div class="heads" id="ResScreen" ng-style="{'text-align': 'left', 'padding-left': '10%'}"><b>Results Screen Tutorial: </b></div>
+    <iframe class="embeddedObject" name="embedded_content" scrolling="no" frameborder="0" type="text/html" style="overflow:hidden;" src="https://www.screencast.com/users/dor.bartal/folders/Jing/media/1bd6ba7f-5567-4525-9981-1bf5dcbe0f32/embed" height="60%" width="60%" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> 
+       <br>
 
     <h4>© Made by Ravid Ben Harosh & Dor Bartal</h4>
 </div>

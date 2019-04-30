@@ -198,8 +198,7 @@ input:-moz-placeholder {
 .links {
     text-align: left;
     color: #0846f1;
-    padding-left: 10%;
-    font-size: 2.0rem;
+    font-size: 1.6rem;
     font-weight: bold;
     text-decoration: underline;
 }
@@ -218,4 +217,18 @@ input:-moz-placeholder {
 
 .confRed {
     background-color: rgb(233, 75, 75);
-};
+}
+
+#myTypes {
+    width: 80%;
+    column-count: 4;
+    padding-left: 11%;
+}
+
+.type {
+    width: 75px;
+    height: 5%;
+    font-size: 2.0rem;
+    list-style-type: square;
+    list-style-position: outside;
+}

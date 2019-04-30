@@ -220,13 +220,12 @@ input:-moz-placeholder {
 }
 
 #myTypes {
-    width: 80%;
+    width: 40%;
     column-count: 4;
     padding-left: 11%;
 }
 
 .type {
-    width: 75px;
     height: 5%;
     font-size: 2.0rem;
     list-style-type: square;

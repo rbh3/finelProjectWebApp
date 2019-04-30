@@ -2,9 +2,9 @@
 <p ng-style="{'text-align': 'left', 'padding-left': '10%', 'font-size':'4.0rem','font-weight':'bold'}">Welcome to the Immune Cells Classifier!</p>
 <div ng-style="{'text-align': 'left', 'padding-left': '10%', 'font-size': '2.0rem'}">Upload an expression data file (up to 200MB) and the classifier will classify the type of each cell.</div><br>
 <p class="heads">Go To:</p><ul ng-style="{'padding-left': '12%'}">
-<a href='' class="links" ng-style="{'text-align': 'left'}" ng-click="scrollTo('#ExpData')"><li>Expression Data Explanation</li></a>
-<a href='' class="links" ng-style="{'text-align': 'left'}" ng-click="scrollTo('#ConvFile')"><li>Conversion File Explanation</li></a>
-<a href='' class="links" ng-style="{'text-align': 'left'}" ng-click="scrollTo('#ResScreen')"><li>Results Screen Explanation</li></a>
+<li><a href='' class="links" ng-style="{'text-align': 'left'}" ng-click="scrollTo('#ExpData')">Expression Data Explanation</a></li>
+<li><a href='' class="links" ng-style="{'text-align': 'left'}" ng-click="scrollTo('#ConvFile')">Conversion File Explanation</a></li>
+<li><a href='' class="links" ng-style="{'text-align': 'left'}" ng-click="scrollTo('#ResScreen')">Results Screen Explanation</a></li>
 <br>
 </ul>
 <div ng-style="{'text-align': 'left', 'padding-left': '10%', 'font-size': '2.0rem'}">The classifier will calculate a predicted type for each cell of the given input file.
@@ -30,7 +30,7 @@
 <div>
 
     <p class="heads" id="ExpData">Expression Data</p>
-    <div ng-style="{'text-align': 'left', 'padding-left': '10%'}">The expression data file will contain genes (rows) and cells (columns). Each inner value of the file will hold the expression level of the given gene in the given cell.<br>
+    <div ng-style="{'text-align': 'left', 'padding-left': '10%' , 'font-size': '1.7rem'}">The expression data file will contain genes (rows) and cells (columns). Each inner value of the file will hold the expression level of the given gene in the given cell.<br>
     Note: The system supports expression files of up to 200MB.</br>
     Here is an example of such file:</div>
     <!--simple expression file-->
@@ -38,7 +38,7 @@
 
     <br>
     <br>
-    <div ng-style="{'text-align': 'left', 'padding-left': '10%'}">When uploading an expression data file, figure out the following details:<br>
+    <div ng-style="{'text-align': 'left', 'padding-left': '10%', 'font-size': '1.7rem'}">When uploading an expression data file, figure out the following details:<br>
         1.	The platform that was used to collect the data (Microarray/Bulk RNA Sequencing/Single Cell RNA Sequencing)<br>
         2.	Expression data start row<br>
         3.	Expression data end row (If no value was given – will default choose the last line of the file)<br>
@@ -46,12 +46,12 @@
         5.	Is the second row titled? (cells titles)<br>
         6.	Are the genes labeled by gene symbol? If not, upload a conversion file as well<br>
     </div><br>
-    <div ng-style="{'text-align': 'left', 'padding-left': '10%'}"><b>Expression file tutorial: </b><br />
+    <div ng-style="{'text-align': 'left', 'padding-left': '10%', 'font-size': '1.7rem'}"><b>Expression file tutorial: </b><br />
     <iframe class="embeddedObject" name="embedded_content" scrolling="no" frameborder="0" type="text/html" style="overflow:hidden;" src="https://www.screencast.com/users/dor.bartal/folders/Jing/media/9610503f-735d-4682-9597-eac60c35a189/embed" height="60%" width="60%" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div>
     <br>
 
-    <div ng-style="{'text-align': 'left', 'padding-left': '10%'}"><b>Example file: </b><a href="../assets/Files/GSE116347_bulk_mouse_expression.txt" download>GSE116347_bulk_mouse_expression</a></div>
-    <div ng-style="{'text-align': 'left', 'padding-left': '10%'}"><b>File details:</b><br>
+    <div ng-style="{'text-align': 'left', 'padding-left': '10%', 'font-size': '1.7rem'}"><b>Example file: </b><a href="../assets/Files/GSE116347_bulk_mouse_expression.txt" download>GSE116347_bulk_mouse_expression</a></div>
+    <div ng-style="{'text-align': 'left', 'padding-left': '10%', 'font-size': '1.7rem'}"><b>File details:</b><br>
         Platform: Bulk RNA Sequencing<br>
         Data start row: 3<br>
         Data end row: 52999 (optional)<br>
@@ -61,7 +61,7 @@
         <br>
     </div>
     <p class="heads" id="ConvFile">Conversion File</p>
-    <div ng-style="{'text-align': 'left', 'padding-left': '10%'}">In case the genes in the expression data are not labeled by gene symbol, a conversion file should be attached.<br>
+    <div ng-style="{'text-align': 'left', 'padding-left': '10%' , 'font-size': '1.7rem'}">In case the genes in the expression data are not labeled by gene symbol, a conversion file should be attached.<br>
         Here is an example of a conversion file:
     </div>
     <!--Converion - conversion file-->
@@ -69,7 +69,7 @@
 
     <br>
     <br>
-    <div ng-style="{'text-align': 'left', 'padding-left': '10%'}">When uploading a conversion file, figure out:<br>
+    <div ng-style="{'text-align': 'left', 'padding-left': '10%' , 'font-size': '1.7rem'}">When uploading a conversion file, figure out:<br>
         1.	Conversion data start row<br>
         2.	Conversion data end row (If no value was given – will default choose the last line of the file)<br>
         3.	Gene ID column<br>
@@ -78,19 +78,19 @@
         <br>
         Keep in mind that for full conversion of the genes, all genes of the expression data file must appear in the conversion file.
     </div><br>
-    <div ng-style="{'text-align': 'left', 'padding-left': '10%'}"><b>Conversion file tutorial: </b><br />
+    <div ng-style="{'text-align': 'left', 'padding-left': '10%' , 'font-size': '1.7rem'}"><b>Conversion file tutorial: </b><br />
     <iframe class="embeddedObject" name="embedded_content" scrolling="no" frameborder="0" type="text/html" style="overflow:hidden;" src="https://www.screencast.com/users/dor.bartal/folders/Jing/media/e52bfec3-192e-49e5-84b6-a956ebad8045/embed" height="60%" width="60%" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>   </div><br>
 
-    <div ng-style="{'text-align': 'left', 'padding-left': '10%'}"><b>Expression example file: </b><a href="../../assets/Files/GSE70941_bulk_expression.txt" download>GSE70941_bulk_expression</a></div>
-    <div ng-style="{'text-align': 'left', 'padding-left': '10%'}"><b>Expression file details:</b><br>
+    <div ng-style="{'text-align': 'left', 'padding-left': '10%' , 'font-size': '1.7rem'}"><b>Expression example file: </b><a href="../../assets/Files/GSE70941_bulk_expression.txt" download>GSE70941_bulk_expression</a></div>
+    <div ng-style="{'text-align': 'left', 'padding-left': '10%' , 'font-size': '1.7rem'}"><b>Expression file details:</b><br>
         Platform: Bulk RNA Sequencing<br>
         Data start row: 3<br>
         Data end row: 22298 (optional)<br>
         Genes labeled by gene symbol: No<br>
     </div>
     <br>
-    <div ng-style="{'text-align': 'left', 'padding-left': '10%'}"><b>Conversion example file: </b><a href="../../assets/Files/GSE70941_bulk_conversion.txt" download>GSE70941_bulk_conversion</a></div>
-    <div ng-style="{'text-align': 'left', 'padding-left': '10%'}"><b>Conversion file details:</b><br>
+    <div ng-style="{'text-align': 'left', 'padding-left': '10%', 'font-size': '1.7rem'}"><b>Conversion example file: </b><a href="../../assets/Files/GSE70941_bulk_conversion.txt" download>GSE70941_bulk_conversion</a></div>
+    <div ng-style="{'text-align': 'left', 'padding-left': '10%' , 'font-size': '1.7rem'}"><b>Conversion file details:</b><br>
         Conversion start row: 2<br>
         Conversion end row: 63815 (optional)<br>
         Gene ID column: 1 (default)<br>
@@ -100,7 +100,7 @@
     </div>
     <br>
 
-    <div class="heads" id="ResScreen" ng-style="{'text-align': 'left', 'padding-left': '10%'}"><b>Results Screen Tutorial: </b><br/>
+    <div class="heads" id="ResScreen" ng-style="{'text-align': 'left', 'padding-left': '10%', 'font-size': '1.7rem'}"><b>Results Screen Tutorial: </b><br/>
     <iframe class="embeddedObject" name="embedded_content" scrolling="no" frameborder="0" type="text/html" style="overflow:hidden;" src="https://www.screencast.com/users/dor.bartal/folders/Jing/media/1bd6ba7f-5567-4525-9981-1bf5dcbe0f32/embed" height="60%" width="60%" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> </div>
        <br>
 

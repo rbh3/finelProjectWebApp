@@ -3,7 +3,7 @@ angular.module('ICC')
     $scope.convert='yes';
     $scope.id_col=1;
     $scope.symbol_col=2;
-    $scope.clfMethod='KNN';
+    $scope.clfMethod='Random Forest';
 
     $scope.initialToolTip = function(){
         $('.tooltip23').tooltipster({

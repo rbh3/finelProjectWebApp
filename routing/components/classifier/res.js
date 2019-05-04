@@ -85,8 +85,12 @@ angular.module('ICC')
             var resultArray = $rootScope.results.output
             var confidenceArray =  $rootScope.results.confidence
             document.getElementById('CellsNo').innerText = "Number of Cells: "+ $rootScope.results.CellsNo ;
-            if ($rootScope.form.isLabeled)
+            if ($rootScope.form.isLabeled && $rootScope.results.haveExtraTypes){
+                document.getElementById('Precision').innerText = "Classification Precision: "+ Number($rootScope.results.Precision*100).toFixed(3)+"%*" ;
+                document.getElementById('extraTypes').innerText = "*One or more of the cell types in the file does not match the 12-types" ;
+            } else if ($rootScope.form.isLabeled){
                 document.getElementById('Precision').innerText = "Classification Precision: "+ Number($rootScope.results.Precision*100).toFixed(3)+"%" ;
+            }
             var counts = {};
             var conf = {};
             for(x in resultArray){

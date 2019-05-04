@@ -7,6 +7,7 @@
     <div ng-init="res.uploadFileToUrl()" id="graph" ng-style="{'overflow': 'auto', 'height': '100%' , 'width':'100%'}" >
         <center><h2 id="CellsNo"></h2></center>
         <center><h2 id="Precision"></h2></center>
+        <center><h7 id="extraTypes"></h7></center>
         <div id="piechart" ng-style="{'float':'left', 'height': '60%' , 'width':'50%'}"></div><div id="confidance" ng-style="{'float':'right', 'height': '60%' , 'width':'50%'}"></div>
         <button class="download-wrapper" ng-click="res.download('download')"><p class="download"><i class="material-icons" ng-style="{'font-size': '35px'}">file_download</i><br/>Export Results</p></button>
         <button class="download-wrapper" ng-click="res.download('results')"><p class="download"><i class="material-icons" ng-style="{'font-size': '35px'}">search</i><br/>View Results</p></button>

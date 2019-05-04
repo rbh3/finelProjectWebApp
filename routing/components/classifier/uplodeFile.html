@@ -3,11 +3,12 @@
 
 <form name="uploadForm" action="" id="signup" enctype="multipart/form-data" novalidate>
         <div class="header">
-        <h3>Upload a Gene Expression Data File</h3>                                                                                  
+        <h3>Upload a Gene Expression Data File</h3><br/>
+        <h7>Immune Cell Classifier (ICC) is a free web application to classify cells from single cell RNA sequencing experiments into immune cell types.</h7>                                                                                   
         </div>
         <div class="sep"></div>
         <div class="inputs">
-        <span ng-style="{'color':'red','font-size': '155%', 'position':'absolute'}">*</span><input type="file" ng-style="{'position':'absolute', 'padding-left':'15px'}" accept="text/plain" file-model="myFile" class="tooltip23" title="Upload a gene expression file. For further explanation – go to `Help & Examples` tab" ng-model="doc" valid-file required/>
+        <span ng-style="{'color':'red','font-size': '155%', 'position':'absolute'}">*</span><input type="file" ng-style="{'position':'absolute', 'padding-left':'15px'}" accept="text/plain" file-model="myFile" class="tooltip23" title="Upload a gene expression file (up to 200MB). For further explanation – go to `Help & Examples` tab" ng-model="doc" valid-file required/>
         <br><br>
         <span class="tooltip23" title="Select the gene expression measurment method">
         <span ng-style="{'color':'red','font-size': '155%'}">*</span> What platform was used to collect this data?
@@ -31,8 +32,6 @@
         <br>
         <input type="radio" ng-model="convert" value="yes" /> Yes
         </span>
-        <!--<button type="button" onclick="expand()">No</button>
-                        <button type="button" onclick="collapse()">Yes</button> -->
         <div id="demo" ng-hide="convert==='yes'">
                 <br>
                 <p>Upload the file for converting gene ID to gene symbol:</p>
@@ -48,23 +47,21 @@
                 <input type="number" min="1" ng-model="id_col" class="tooltip23" title="Enter the gene ID column number (in the conversion file)" required/>
                 <br><span ng-style="{'color':'red','font-size': '155%'}">*</span> Gene symbol column:
                 <br>
-                <input type="number" min="1" ng-model="symbol_col" class="tooltip23" title="Enter the gene symbol column number (in the conversion file)" required /></div>
-        <br>        <br>
+        <input type="number" min="1" ng-model="symbol_col" class="tooltip23" title="Enter the gene symbol column number (in the conversion file)" required /></div>
+        <br><br>
         <input type="checkbox" ng-model="isLabeled" class="tooltip23" title="Check if the first row of the expression data file contains the actual cell labels (for precision calculation)" /> 
         <span class="tooltip23" title="Check if the first row of the expression data file contains the actual cell labels (for precision calculation)">Is the first row labeled?</span>
         <br>
         <input type="checkbox" ng-model="isTitled" class="tooltip23" title="Check if the second row of the expression data file contains the cell title" /> 
         <span class="tooltip23" title="Check if the second row of the expression data file contains the cell title">Is the second row titled?</span>
-        <br>        <br>
-        <span class="tooltip23" title="Select one of our classification methods, KNN is the default one">
-                <span ng-style="{'color':'red','font-size': '155%'}">*</span> Select a classification methods:
-                <br />
-                <input type="radio" ng-model="clfMethod" value="KNN" required/> KNN
-                <br>
-                <input type="radio" ng-model="clfMethod" value="Random Forest" /> Random Forest
-                <br>
-                <input type="radio" ng-model="clfMethod" value="SVM" /> SVM
-                </span><br>
+        <br><br>
+        <span class="tooltip23" title="Classification results depends on the classification method. The default method is Random Forest">
+        <span ng-style="{'color':'red','font-size': '155%'}">*</span> To change a classification method:
+        <select ng-model="clfMethod" required>
+                <option value="Random Forest" selected>Random Forest</option>
+                <option value="KNN">KNN</option>
+                <option value="SVM">SVM</option>
+        </select>
         <center><button type="button" ng-click="uploadFile(uploadForm.$valid)" id="submit" ng-disabled="uploadForm.$invalid">Run Classification</button></center>
 </div>
 </form>

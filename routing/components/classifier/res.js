@@ -270,4 +270,10 @@ angular.module('ICC')
     self.refToUp = () =>{
         $location.path("/");
     }
+
+    self.checkLabels = () =>{
+        if(!$rootScope.results || !$rootScope.results.haveExtraTypes)
+            return false;
+        return true;
+    }
 }]);
